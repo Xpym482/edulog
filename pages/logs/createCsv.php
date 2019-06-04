@@ -42,9 +42,9 @@
 
             while ( $row = $activities_raw->fetchArray(SQLITE3_ASSOC) ) {
                 $timeStamp = strtotime($row["lesson start"].' UTC');
-                $row["lesson start"] = date("d-m-y H:i:s", $timeStamp);
+                $row["lesson start"] = date("Y-m-d H:i:s", $timeStamp);
                 $timeStamp = strtotime($row["lesson end"].' UTC');
-                $row["lesson end"] = date("d-m-y H:i:s", $timeStamp);
+                $row["lesson end"] = date("Y-m-d H:i:s", $timeStamp);
                 $timeStamp = strtotime($row["log start"].' UTC');
                 $row["log start"] = date("H:i:s", $timeStamp);
                 $timeStamp = strtotime($row["log end"].' UTC');

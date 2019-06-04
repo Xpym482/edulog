@@ -25,9 +25,9 @@
         
             $lesson = $result->fetchArray(SQLITE3_ASSOC);
             $timeStamp = strtotime($lesson["started_at"].' UTC');
-            $lesson["started_at"] = date("d-m-y H:i:s", $timeStamp);
+            $lesson["started_at"] = date("Y-m-d H:i:s", $timeStamp);
             $timeStamp = strtotime($lesson["ended_at"].' UTC');
-            $lesson["ended_at"] = date("d-m-y H:i:s", $timeStamp);
+            $lesson["ended_at"] = date("Y-m-d H:i:s", $timeStamp);
 
             date_default_timezone_set($tz);
 
@@ -49,9 +49,9 @@
             $logs = [];
             while ( $row = $activities_raw->fetchArray() ) {
                 $timeStamp = strtotime($row["started_at"].' UTC');
-                $row["started_at"] = date("d-m-y H:i:s", $timeStamp);
+                $row["started_at"] = date("Y-m-d H:i:s", $timeStamp);
                 $timeStamp = strtotime($row["ended_at"].' UTC');
-                $row["ended_at"] = date("d-m-y H:i:s", $timeStamp);
+                $row["ended_at"] = date("Y-m-d H:i:s", $timeStamp);
                 array_push($logs, $row);
                 fputcsv($fp, $row);
             }

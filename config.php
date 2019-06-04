@@ -1,3 +1,3 @@
 <?php
-    $edulog_root = "https://" . $_SERVER['SERVER_NAME'] . "/edulog/";
+    $edulog_root = "http://" . $_SERVER['SERVER_NAME'] . "/";
 ?>
