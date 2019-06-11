@@ -35,7 +35,7 @@
                 // set cookie and redirect to tracker
                 setcookie('user_id', $result['id'], time() + (86400 * 30), "/");
                 setcookie('locale', $_POST['login-locale'], time() + (86400 * 30), "/");
-                Redirect($edulog_root . 'pages/tracker', false);
+                Redirect($edulog_root . 'pages/lesson_room', false);
             }
 
         } else {
