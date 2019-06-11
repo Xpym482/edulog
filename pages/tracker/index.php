@@ -79,5 +79,17 @@
         </div> -->
         <!-- <button id="resetBtn" class="bot-btn">Lähtesta</button> -->
 
+   <h2>Popup</h2>
+
+<div class="popup" onclick="myFunction()">Click me to toggle the popup!
+  <span class="popuptext" id="myPopup">A Simple Popup!</span>
+</div>
+
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
     </body>
 </html>
