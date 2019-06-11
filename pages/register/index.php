@@ -93,30 +93,28 @@
                 <section class="box-head">
                     <h1 id="title">Registreerumine</h1>
                 </section>
-                <section>
-                    <label id="label-locale"for="register-locale">Keel</label>
-                    <select id="register-locale" name="register-locale">
-                        <option value="et">Eesti</option>
-                        <option value="en">English</option>
-                    </select>
-                </section>
-                <section>
-                    <label id="label-email"for="register-email">E-mail</label>
-                    <input type="email" id="register-email" name="register-email">
-                </section>
-                <section>
-                    <label id="label-password"for="register-password">Salasõna</label>
-                    <input type="password" id="register-password" name="register-password">
-                </section>
-                <section>
-                    <label id="label-password-again"for="register-password-again">Salasõna uuesti</label>
-                    <input type="password" id="register-password-again" name="register-password-again">
-                </section>
-                <section>
-                    <div class="btn-wrap">
-                        <button id="submit-btn" class="f-btn" type="submit">Registreeru</button>
-                    </div>
-                </section>
+                <div class="login-details">
+                    <section>
+                        <select id="register-locale" name="register-locale">
+                            <option value="et">Eesti</option>
+                            <option value="en">English</option>
+                        </select>
+                    </section>
+                    <section>
+                        <input type="email" id="register-email" name="register-email" placeholder="E-mail">
+                    </section>
+                    <section>
+                        <input type="password" id="register-password" name="register-password" placeholder="Parool">
+                    </section>
+                    <section>
+                        <input type="password" id="register-password-again" name="register-password-again" placeholder="Korda parooli">
+                    </section>
+                    <section>
+                        <div class="btn-wrap">
+                            <button id="submit-btn" class="f-btn" type="submit">Registreeru</button>
+                        </div>
+                    </section>
+                </div>
             </form>
             <a id="cta-login" href="../login" class="register-cta">On juba kasutaja olemas? Logi sisse</a>
         </div>
