@@ -116,7 +116,7 @@
                     </section>
                 </div>
             </form>
-            <a id="cta-login" href="../login" class="register-cta">On juba kasutaja olemas? Logi sisse</a>
+            <p class="not-user">Oled juba kasutaja? <a class="links" href="../login">Logi sisse</a></p>
         </div>
     </body>
 </html>

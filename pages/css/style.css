@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap");
 * {
   margin: 0;
 }
@@ -11,7 +12,7 @@ a {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .container {
@@ -34,7 +35,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: inherit;
+  font-weight: 600;
 }
 
 /* TRACKER */
@@ -418,6 +419,27 @@ div.logreg {
           justify-content: center;
 }
 
+.not-user {
+  margin-top: 20px;
+}
+
+.links {
+  color: red;
+  text-decoration: none;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+
+.links:hover {
+  color: #c70000;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+
 .logreg section input,
 .logreg section select {
   width: 200px;
@@ -429,11 +451,19 @@ div.logreg {
   border-radius: 10px;
   background: #e6e6e6;
   font-size: 16px;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
 }
 
 .logreg section input:hover,
 .logreg section select:hover {
   cursor: pointer;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
 }
 
 .logreg section input:focus,
@@ -441,6 +471,10 @@ div.logreg {
   background: #dfdfdf;
   border: 1px solid #dfdfdf;
   cursor: default;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
 }
 
 .btn-wrap {
@@ -465,12 +499,20 @@ div.logreg {
   color: white;
   text-transform: uppercase;
   font-size: 14px;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
 }
 
 .f-btn:hover {
   border: 1px solid #585858;
   background: #585858;
   cursor: pointer;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
 }
 
 .register-cta {

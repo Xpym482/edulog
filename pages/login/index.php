@@ -89,7 +89,7 @@
             <?php if($invalid) {
                 echo '<span style="color: red; font-weight: bold; margin-top: 10px;" id="invalid-combination">Vale salasõna või emaili kombinatsioon</span>';
             } ?>
-            <a id="cta-register" href="../register" class="register-cta">Ei ole veel kasutaja? Registreeru siin</a>
+            <p class="not-user">Ei ole veel kasutaja? <a class="links" href="../register">Registreeru siin</a></p>
         </div>
     </body>
 </html>
