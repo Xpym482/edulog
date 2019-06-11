@@ -52,7 +52,7 @@
         <title>Edulog login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
-        <link rel="stylesheet" href="../css/style.css" type="text/css">
+        <link rel="stylesheet" href="../style.css" type="text/css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         <script src="login.js"></script>
@@ -66,25 +66,26 @@
                 <section class="box-head">
                     <h1 id="title">Logi sisse</h1>
                 </section>
-                <div class="login-details">
-                    <section>
-                        <select id="login-locale" name="login-locale">
-                            <option value="et">Eesti</option>
-                            <option value="en">English</option>
-                        </select>
-                    </section>
-                    <section>
-                        <input id="login-email" name="login-email" placeholder="Kasutajanimi">
-                    </section>
-                    <section>
-                        <input type="password" id="login-password" name="login-password" placeholder="Parool">
-                    </section>
-                    <section>
-                        <div class="btn-wrap">
-                            <button id="login-btn" class="f-btn" type="submit">Edasi</button>
-                        </div>
-                    </section>
-                </div>
+                <section>
+                    <label id="label-locale"for="register-locale">Keel</label>
+                    <select id="login-locale" name="login-locale">
+                        <option value="et">Eesti</option>
+                        <option value="en">English</option>
+                    </select>
+                </section>
+                <section>
+                    <label id="label-email" for="login-email">E-mail</label>
+                    <input id="login-email" name="login-email">
+                </section>
+                <section>
+                    <label id="label-password" for="login-email">Salasõna</label>
+                    <input type="password" id="login-password" name="login-password">
+                </section>
+                <section>
+                    <div class="btn-wrap">
+                        <button id="login-btn" class="f-btn" type="submit">Edasi</button>
+                    </div>
+                </section>
             </form>
             <?php if($invalid) {
                 echo '<span style="color: red; font-weight: bold; margin-top: 10px;" id="invalid-combination">Vale salasõna või emaili kombinatsioon</span>';
