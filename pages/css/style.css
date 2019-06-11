@@ -408,7 +408,6 @@ div.logreg {
   min-height: 50px;
   text-decoration: none;
   color: black;
-<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -417,8 +416,6 @@ div.logreg {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-=======
->>>>>>> parent of 7a01d3c... Revert "Merge branch 'master' of https://github.com/Xpym482/edulog"
 }
 
 .logreg section input,
