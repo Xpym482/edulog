@@ -78,6 +78,5 @@
             <button id="sendToEmail">Saada tulemused emailile</button>
         </div> -->
         <!-- <button id="resetBtn" class="bot-btn">Lähtesta</button> -->
-
     </body>
 </html>
