@@ -328,6 +328,9 @@ div.logreg {
   min-height: 50px;
   text-decoration: none;
   color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .logreg section input,
