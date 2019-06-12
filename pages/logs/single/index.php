@@ -25,13 +25,14 @@
     <head>
         <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
-        <link rel="stylesheet" href="../../style.css" type="text/css">
+        <link rel="stylesheet" href="../../css/style.css" type="text/css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
         <title>EduLog</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         <script src="<?php echo $edulog_root . 'pages/tracker/js.cookie.js';?>"></script>
         <script src="single.js"></script>
+        <script src="../../navbar.js"></script>
     </head>
 
     <body>

@@ -90,6 +90,11 @@ h4 {
           align-items: center;
   padding: 0.5em;
   text-align: justify;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 60px;
+  position: relative;
 }
 
 .activity span {
@@ -119,7 +124,8 @@ h4 {
   pointer-events: none;
   -webkit-transition: width ease 0.4s;
   transition: width ease 0.4s;
-  position: relative;
+  position: absolute;
+  right: 0px;
 }
 
 .activity.open .bg {
