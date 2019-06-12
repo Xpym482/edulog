@@ -386,19 +386,6 @@ $(document).ready(function(){
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     function secondsToHMS(secs) {
       function z(n){return (n<10?'0':'') + n;}
       var sign = secs < 0? '-':'';
@@ -406,14 +393,22 @@ $(document).ready(function(){
       return sign + z(secs/3600 |0) + ':' + z((secs%3600) / 60 |0) + ':' + z(secs%60);
     }
 
-function addStudentActivity(){
-
-
+    function sendData(){
+     var name = document.getElementById("addStudentActivity").value;
+    console.log("Sending data...");
+     var httpr = new XMLHttpRequest();
+     httpr.open("POST", "addActivities.php", true);
+     httpr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+     httpr.onreadystatechange=function(){
+        if(httpr.readyState == 4 && httpr.status == 200) {
+            document.getElementById("response").innerHTML = httpr.responseText;
+        }
+    }
+    httpr.send("name_en="+addStudentActivity);
 }
 
-function addTeacherActivity(){
-
-
-}
+    function submitGo() {
+    window.location = "www.google.com"
+    }
 
 });

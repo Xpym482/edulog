@@ -7,6 +7,18 @@
         exit();
     }
 
+    function __construct($pdo) {
+        $this->pdo = $pdo;
+    }
+
+    if(isset($_POST['addStudentActivity'])){
+        $addStudentActivity = $_POST['name_en'];
+        $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
+        $query = "INSERT INTO activities(name_et) VALUES(:name_et)";
+        $result = $db->querySingle($query, true);
+
+    }
+
 
 
 
@@ -47,6 +59,25 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         <script src="js.cookie.js"></script>
         <script src="main.js"></script>
+        <script>
+  function sendData(){
+     var name = document.getElementById("addStudentActivity").value;
+    console.log("Sending data...");
+     var httpr = new XMLHttpRequest();
+     httpr.open("POST", "addActivities.php");
+     httpr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+     httpr.onreadystatechange=function(){
+        if(httpr.readyState == 4 && httpr.status == 200) {
+            document.getElementById("response").innerHTML = httpr.responseText;
+        }
+    }
+    httpr.send("name_en="+addStudentActivity);
+
+     function submitGo() {
+    window.location = "www.google.com"
+    }
+}
+</script>
     </head>
 
     <body>
@@ -56,11 +87,23 @@
 
 
             <div id="tracker">
-                <div id="activities"></div>
+             <!--   <div id="activities"></div> -->
                 <footer></footer>
             </div>
-            <div id="addStudentActivity"></div>
-            <div id="addTeacherActivity"></div>
+            <div id="addStudentActivity">
+            <h2>Add student activity</h2>
+            <input type="text" id="addStudentActivity" placeholder="Lisa õpejudude tegevust" /><br />
+            <input type="button" value="Submit" onclick="sendData()" /><br />
+            </div>
+            <div id="addTeacherActivity">
+            <h2>Add teacher activity</h2>
+            <input type="text" id="addTeacherActivity" placeholder="Lisa õpejudude tegevust" /><br /></button>
+            <input type="button" value="Submit" onclick="sendData()" /><br /></button>
+            </div>
+            <button onclick="submitGo()">Go</button> <!-- test -->
+            <span id="response">
+
+            </span>
 
 
     </body>

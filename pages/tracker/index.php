@@ -1,11 +1,13 @@
 <?php
     include('../../config.php');
 
+
     function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
     }
+
 
 
 
@@ -78,5 +80,6 @@
             <button id="sendToEmail">Saada tulemused emailile</button>
         </div> -->
         <!-- <button id="resetBtn" class="bot-btn">Lähtesta</button> -->
+        </div>
     </body>
 </html>
