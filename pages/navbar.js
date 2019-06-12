@@ -3,6 +3,10 @@ $(document).ready(function() {
   let navigation = $("aside");
 
   hamburger.click(function() {
-    navigation.show();
+    if (navigation.is(":hidden")) {
+      navigation.show();
+    } else {
+      navigation.hide();
+    }
   });
 });
