@@ -1,6 +1,3 @@
-<?php
-    include('../../config.php');
-?>
 <style type="text/css">
     .wrapper-menu {
     width: 25px;
