@@ -47,6 +47,7 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         <script src="login.js"></script>
+        <script src="../navbar.js"></script>
     </head>
 
     <body>
@@ -55,12 +56,26 @@
 
             <form id="login-form" action="<?=$_SERVER['PHP_SELF'];?>" method="post" class="logreg">
                 <section class="box-head">
-                    <h1 id="title">Tundi ruum</h1>
+                    <h1 id="title">VALI RUUM</h1>
+                    <hr>
                 </section>
                 <div class="login-details">
                     <section>
+                        <h1 id="title">Sinu ruumid:</h1>
                         <input id="Ruum" name="Ruum" placeholder="Kirjutage ruum">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <h3 id="title">LISA UUS RUUM</h3>
+                        <input id="Ruum" name="Ruum" placeholder="Kirjutage ruum">
+                        <hr>
                         <div class="btn-wrap">
+                        <hr>
+
                             <button id="login-btn" class="f-btn" type="submit">Edasi</button>
                         </div>
                     </section>

@@ -84,6 +84,7 @@
 
         <script src="<?php echo $edulog_root . 'pages/tracker/js.cookie.js';?>"></script>
         <script src="register.js"></script>
+        <script src="../navbar.js"></script>
     </head>
 
     <body>
