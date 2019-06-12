@@ -58,19 +58,18 @@ h4 {
 .list {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  width: 100%;
+  padding: 0px 20%;
+  justify-content: center;
 }
 
 .activity {
   cursor: pointer;
-  width: 100%;
+  width: 50%;
   background-size: cover;
   background-position: center;
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #ccc;
   padding: 0.5em;
   text-align: justify;
 }
@@ -144,7 +143,7 @@ h4 {
   box-sizing: border-box;
   width: 100%;
   display: block;
-  background: #f7f7f7;
+  text-align: center;
 }
 
 .overlay {

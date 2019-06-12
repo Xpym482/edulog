@@ -69,16 +69,15 @@ h4 {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
+  padding: 0px 20%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .activity {
   cursor: pointer;
-  width: 100%;
+  width: 50%;
   background-size: cover;
   background-position: center;
   -webkit-box-sizing: border-box;
@@ -89,7 +88,6 @@ h4 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 1px solid #ccc;
   padding: 0.5em;
   text-align: justify;
 }
@@ -180,7 +178,7 @@ h4 {
           box-sizing: border-box;
   width: 100%;
   display: block;
-  background: #f7f7f7;
+  text-align: center;
 }
 
 .overlay {
