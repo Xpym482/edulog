@@ -188,7 +188,7 @@ $(document).ready(function() {
                         
                         <span>` +
             structure[locale].groups[key]["activities"][activity_key] +
-            `</span>
+            `</span> <br>
             
             <div class="bg"><span class="timer">00:00:00</span></div>
                     </a>

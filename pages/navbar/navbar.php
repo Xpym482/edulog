@@ -1,8 +1,4 @@
-<?php
-    include('../../config.php');
-?>
 
-<!-- markup -->
 <nav>
     <div class="wrapper-menu">
         <div class="line-menu half start"></div>
