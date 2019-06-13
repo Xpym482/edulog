@@ -11,16 +11,16 @@
         $this->pdo = $pdo;
     }
 
-    if(isset($_POST['addStudentActivity'])){
-        $addStudentActivity = $_POST['name_en'];
+    if(!empty($_POST['activity'])){
+        echo("test");
+        $addStudentActivity = $_POST['name_et'];
         $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
-        $query = "INSERT INTO activities(name_et) VALUES(:name_et)";
-        $result = $db->querySingle($query, true);
-        if(!empty($result)) {
-            echo "error";
-        } else {
-            echo "data sent";
-        }
+        $db->exec('BEGIN');
+        $statement = $db->prepare('INSERT INTO activities (name_et) VALUES (:name_et)');
+        $statement->bindValue(':name_et', $_POST['activity']);
+        $statement->execute();
+        $db->exec('COMMIT');
+        var_dump($_POST['activity']);
 
     }
 
@@ -64,21 +64,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         <script src="js.cookie.js"></script>
         <script src="main.js"></script>
-        <script>
-  function sendData(){
-     var name = document.getElementById("addStudentActivity").value;
-    console.log("Sending data...");
-     var httpr = new XMLHttpRequest();
-     httpr.open("POST", "addActivities.php");
-     httpr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-     httpr.onreadystatechange=function(){
-        if(httpr.readyState == 4 && httpr.status == 200) {
-            document.getElementById("response").innerHTML = httpr.responseText;
-        }
-    }
-    httpr.send("name_en="+addStudentActivity);
-}
-</script>
     </head>
 
     <body>
@@ -91,17 +76,18 @@
              <!--   <div id="activities"></div> -->
                 <footer></footer>
             </div>
-            <div id="addStudentActivity">
+            <div id="addStudent">
             <h2>Add student activity</h2>
-            <input type="text" id="addStudentActivity" placeholder="Lisa õpejudude tegevust" /><br />
-            <input type="button" value="Submit" onclick="sendData()" /><br />
+            <form method="post"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <input type="text" id="addStudentActivity" placeholder="Lisa õpejudude tegevust" name="activity"/><br />
+                <input type="submit" value="Submit" name="addActivity"/><br />
+            </form>
             </div>
-            <div id="addTeacherActivity">
+            <div id="addTeacher">
             <h2>Add teacher activity</h2>
             <input type="text" id="addTeacherActivity" placeholder="Lisa õpejudude tegevust" /><br /></button>
-            <input type="button" value="Submit" onclick="sendData()" /><br /></button>
+            <input type="button" value="Submit"  /><br /></button>
             </div>
-            <button onclick="submitGo()">Go</button> <!-- test -->
             <span id="response">
 
             </span>

@@ -396,18 +396,20 @@ $(document).ready(function() {
     );
   }
 
-  function sendData(){
-
-    var name = document.getElementById("addStudentActivity").value;
-     console.log("Sending data...");
-    var httpr = new XMLHttpRequest();
-    httpr.open("POST", "addActivities.php", true);
-    httpr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    httpr.onreadystatechange=function(){
-       if(httpr.readyState == 4 && httpr.status == 200) {
-           document.getElementById("response").innerHTML = httpr.responseText;
-       }
-   }
-   httpr.send("name_en="+addStudentActivity);
-}
+  
 });
+
+function sendData(){
+
+  var name = document.getElementById("addStudentActivity").value;
+   console.log("Sending data...");
+  var httpr = new XMLHttpRequest();
+  httpr.open("POST", "addActivities.php", true);
+  httpr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  httpr.onreadystatechange=function(){
+     if(httpr.readyState == 4 && httpr.status == 200) {
+         document.getElementById("response").innerHTML = httpr.responseText;
+     }
+ }
+ httpr.send("name_en="+addStudentActivity);
+}
