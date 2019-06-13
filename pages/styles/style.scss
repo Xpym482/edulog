@@ -28,7 +28,8 @@ body {
 
 #activities,
 #tracker {
-  position: relative;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 h1,
@@ -47,7 +48,6 @@ h4 {
 
 #tracker {
   transition: transform ease 0.4s;
-  margin-bottom: 100px;
 }
 
 .login-details {
@@ -120,12 +120,13 @@ h4 {
   position: fixed;
   padding: 1em 0;
   box-sizing: border-box;
-  background: blue;
+  background: rgb(255, 145, 0);
   border: none;
   font-size: 21px;
   color: white;
   z-index: 4;
   transition: transform ease 0.4s;
+  cursor: pointer;
 }
 
 #startBtn.away {
@@ -140,6 +141,10 @@ h4 {
 
 #endBtn.show {
   transform: none;
+}
+
+.group {
+  margin-bottom: 60px;
 }
 
 .group-header {
@@ -278,7 +283,6 @@ input {
 }
 
 h3 {
-  margin-left: 2.5vw;
   margin-bottom: 0.5em;
 }
 

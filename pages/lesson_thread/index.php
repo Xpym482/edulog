@@ -18,16 +18,6 @@
         $query = "SELECT * FROM lessons WHERE ended_at IS NULL AND user='". $_COOKIE['user_id'] ."'";
         $result = $db->querySingle($query, true);
 
-        if(!empty($result)) {
-
-            // if active lesson already exists
-            setcookie('lesson_start', $result['started_at'], time() + (86400 * 30), "/");
-            setcookie('lesson_id', $result['id'], time() + (86400 * 30), "/");
-
-        } else {
-            setcookie("lesson_start", "", time() + (86400 * 30), "/");
-            setcookie("lesson_id", "", time() + (86400 * 30), "/");
-        }
 
     } else {
         Redirect($edulog_root . 'pages/tracker', false);
