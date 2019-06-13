@@ -93,25 +93,18 @@
             <form method="post"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <input type="text" id="addStudentActivity" placeholder="Lisa õpejudude tegevust" name="activity"/><br />
                 <input type="submit" value="Submit" name="addActivity"/><br />
-                <?php
-                $ourarray = getActivities();
-                 ?>
-                <select>
-                  <?php
-                  foreach ($ourarray as $key) {
-                    ?><option><?php echo $key;?></option>
-                    <?php
-                  }
-                   ?>
-                </select>
             </form>
+            <?php
+            $ourarray = getActivities();
+             ?>
+            <select>
+              <?php
+              foreach ($ourarray as $key) {
+                ?><option><?php echo $key;?></option>
+                <?php
+              }
+               ?>
+            </select>
             </div>
-            <div id="addTeacher">
-            <h2>Add teacher activity</h2>
-            <input type="text" id="addTeacherActivity" placeholder="Lisa õpejudude tegevust" /><br /></button>
-            <input type="button" value="Submit"  /><br /></button>
-            </div>
-            <span id="response">
-            </span>
     </body>
 </html>
