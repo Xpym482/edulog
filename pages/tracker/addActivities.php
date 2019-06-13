@@ -16,6 +16,11 @@
         $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
         $query = "INSERT INTO activities(name_et) VALUES(:name_et)";
         $result = $db->querySingle($query, true);
+        if(!empty($result)) {
+            echo "error";
+        } else {
+            echo "data sent";
+        }
 
     }
 
@@ -72,10 +77,6 @@
         }
     }
     httpr.send("name_en="+addStudentActivity);
-
-     function submitGo() {
-    window.location = "www.google.com"
-    }
 }
 </script>
     </head>

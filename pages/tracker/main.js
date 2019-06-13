@@ -348,7 +348,7 @@ $(document).ready(function() {
     });
   });
 
-  $("#resetBtn").click(function() {
+    $("#resetBtn").click(function() {
     $("#results").addClass("hide");
     $("#endBtn").removeClass("show");
     $(".activity").removeClass("open");
@@ -396,7 +396,18 @@ $(document).ready(function() {
     );
   }
 
-  function addStudentActivity() {}
+  function sendData(){
 
-  function addTeacherActivity() {}
+    var name = document.getElementById("addStudentActivity").value;
+     console.log("Sending data...");
+    var httpr = new XMLHttpRequest();
+    httpr.open("POST", "addActivities.php", true);
+    httpr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpr.onreadystatechange=function(){
+       if(httpr.readyState == 4 && httpr.status == 200) {
+           document.getElementById("response").innerHTML = httpr.responseText;
+       }
+   }
+   httpr.send("name_en="+addStudentActivity);
+}
 });
