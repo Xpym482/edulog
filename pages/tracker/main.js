@@ -180,7 +180,9 @@ $(document).ready(function() {
         // add activity to DOM
         $("#" + key + " .list").append(
           `
-                    <a class="activity" id="` +
+                    <a class="activity" style="background-image: url('../../gradients/` +
+            backgrounds[key][activity_key] +
+            `');" id="` +
             key +
             "_" +
             activity_key +
