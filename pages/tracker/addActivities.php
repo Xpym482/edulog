@@ -16,8 +16,8 @@
         $addStudentActivity = $_POST['name_et'];
         $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
         $db->exec('BEGIN');
-        $statement = $db->prepare('INSERT INTO activities (name_et) VALUES (:name_et)');
-        $statement->bindValue(':name_et', $_POST['activity']);
+        $statement = $db->prepare('INSERT INTO activities (name) VALUES (:name)');
+        $statement->bindValue(':name', $_POST['activity']);
         $statement->execute();
         $db->exec('COMMIT');
         var_dump($_POST['activity']);
