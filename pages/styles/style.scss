@@ -1,4 +1,4 @@
-@import "variables";
+@import "variables", "colors";
 
 * {
   margin: 0;
@@ -453,40 +453,15 @@ div.logreg {
   position: absolute;
 }
 
-.circle {
-  display: block;
-
-  width: 30px;
-
-  height: 30px;
-
-  border-radius: 100%;
-
-  background: black;
-
-  border: none;
-
-  cursor: pointer;
-
-  float: right;
-}
-
 .delete-button {
-  margin-right: 40px;
+  margin-right: 5px;
 
   cursor: pointer;
 }
 
-.delete-button::before {
-  content: "X";
-
-  color: #000;
-
-  font-weight: 1000;
-
-  font-size: 27px;
+.log-object {
+  margin-right: 20px;
 }
-
 // navigation
 
 .wrapper-menu {
