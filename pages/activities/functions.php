@@ -10,6 +10,8 @@ function Redirect($url, $permanent = false)
         $this->pdo = $pdo;
     }
 
+
+
     function getTeacherActivities(){
       $teacherActivities = array();
       $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
@@ -35,9 +37,10 @@ function Redirect($url, $permanent = false)
         $addStudentActivity = $_POST['activity'];
         $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
         $db->exec('BEGIN');
-        $statement = $db->prepare('INSERT INTO activities (activity, type) VALUES (:activity, :type)');
+        $statement = $db->prepare('INSERT INTO activities (activity, type, user_id) VALUES (:activity, :type, :user_id)');
         $statement->bindValue(':activity', $_POST['addTeacherActivity']);
         $statement->bindValue(':type', 'teacher');
+        $statement->bindValue(':user_id', $_COOKIE['user_id']);
         $statement->execute();
         $db->exec('COMMIT');
 
@@ -48,9 +51,10 @@ function Redirect($url, $permanent = false)
         $addStudentActivity = $_POST['activity'];
         $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
         $db->exec('BEGIN');
-        $statement = $db->prepare('INSERT INTO activities (activity, type) VALUES (:activity, :type)');
+        $statement = $db->prepare('INSERT INTO activities (activity, type, user_id) VALUES (:activity, :type, :user_id)');
         $statement->bindValue(':activity', $_POST['addStudentActivity']);
         $statement->bindValue(':type', 'student');
+        $statement->bindValue(':user_id', $_COOKIE['user_id']);
         $statement->execute();
         $db->exec('COMMIT');
 
