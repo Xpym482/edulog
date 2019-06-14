@@ -57,6 +57,14 @@
 
         <div class="container">
 
+            <div class="slide-cam-audio">
+                <div class="slide-cam">
+                    <img src="../assets/camera.svg" alt="camera-icon" class="icon-slide">
+                </div>
+                <div class="slide-audio">
+                    <img src="../assets/microphone.svg" alt="microphone" class="icon-slide">
+                </div>
+            </div>
 
             <div id="tracker">
                 <div id="activities"></div>

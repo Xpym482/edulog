@@ -114,6 +114,37 @@ h4 {
   transition: opacity ease 1s;
 }
 
+.slide-cam-audio {
+  position: absolute;
+  top: 7%;
+  left: 20px;
+  display: inline-flex;
+  .slide-cam {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .slide-audio {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .icon-slide {
+    height: 70%;
+  }
+}
+
 .bot-btn {
   bottom: 0;
   width: 100%;

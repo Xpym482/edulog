@@ -191,6 +191,54 @@ h4 {
   transition: opacity ease 1s;
 }
 
+.slide-cam-audio {
+  position: absolute;
+  top: 7%;
+  left: 20px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.slide-cam-audio .slide-cam {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  margin-right: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.slide-cam-audio .slide-audio {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.slide-cam-audio .icon-slide {
+  height: 70%;
+}
+
 .bot-btn {
   bottom: 0;
   width: 100%;
