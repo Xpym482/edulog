@@ -18,7 +18,6 @@
         <li><a href="<?php echo $edulog_root . 'pages/lesson_thread';?>">Tundide teema</a></li>
         <li><a href="<?php echo $edulog_root . 'pages/lesson_room';?>">Tundide room</a></li>
         <li><a href="<?php echo $edulog_root . 'pages/lesson_room';?>">Seadistused</a></li>
-        <li><a href="<?php echo $edulog_root . 'pages/tracker/addActivities.php';?>">Add activiti</a></li>
         <li><a id="logout" href="<?php echo $edulog_root . 'pages/login';?>">Logi välja</a></li>
 
        <?php if(strstr($_SERVER["SCRIPT_NAME"], 'logs')) : ?>
