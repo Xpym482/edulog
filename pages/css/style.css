@@ -47,6 +47,11 @@
   background-color: rgba(200, 200, 200, 0.5);
 }
 
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
 * {
   margin: 0;
 }
@@ -189,6 +194,96 @@ h4 {
   pointer-events: none;
   -webkit-transition: opacity ease 1s;
   transition: opacity ease 1s;
+}
+
+.slide-cam-audio {
+  position: absolute;
+  top: 7%;
+  left: 20px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.slide-cam-audio .slide-cam {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  margin-right: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.slide-cam-audio .slide-audio {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.slide-cam-audio .icon-slide {
+  height: 70%;
+}
+
+.settings-layout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-decoration: none;
+  list-style: none;
+}
+
+.settings-layout ul {
+  margin: 0;
+  padding: 0;
+  margin-left: 0px;
+}
+
+.settings-layout li {
+  padding: 0;
+  width: 350px;
+}
+
+.settings-layout a {
+  display: block;
+  color: black;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  background-color: #f4f4f4;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+
+.settings-layout a:hover {
+  background-color: #d8d8d8;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
 }
 
 .bot-btn {
