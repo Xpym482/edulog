@@ -45,7 +45,7 @@
       return $rooms;
     }
 
-    if(isset($_POST['addroom'])){
+    if(isset($_POST['Ruum'])){
         $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
         $db->exec('BEGIN');
         $statement = $db->prepare('INSERT INTO activities (room) VALUES (:room)');
@@ -102,7 +102,7 @@
                         <br>
                         <br>
                         <h3 id="title">LISA UUS RUUM</h3>
-                        <input id="Ruum" name="Ruum" placeholder="Kirjutage ruum" input="text">
+                        <input id="Ruum" name="Ruum" placeholder="Kirjutage ruum" type="text">
                         <hr>
                         <div class="btn-wrap">
                         <hr>
