@@ -11,6 +11,25 @@
         $this->pdo = $pdo;
     }
 
+    function getActivities(){
+      $activities = array();
+      $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
+      $results = $db->query('SELECT type from activities');
+      while ($row = $results->fetchArray()) {
+        array_push($activities, $row[0]);
+      }
+      /*foreach ($activities as $key) {
+        echo $key . '<br/>';
+      }*/
+      /*$db->exec('BEGIN');
+      $statement = $db->prepare('SELECT type from activities');
+      $statement->bindValue(':name', $_POST['activity']);
+      $statement->execute();
+      $db->exec('COMMIT');
+      var_dump($statement);*/
+      return $activities;
+    }
+
     if(!empty($_POST['activity'])){
         echo("test");
         $addStudentActivity = $_POST['name_et'];
@@ -20,7 +39,6 @@
         $statement->bindValue(':name', $_POST['activity']);
         $statement->execute();
         $db->exec('COMMIT');
-        var_dump($_POST['activity']);
 
     }
 
@@ -34,13 +52,10 @@
 
         $query = "SELECT * FROM lessons WHERE ended_at IS NULL AND user='". $_COOKIE['user_id'] ."'";
         $result = $db->querySingle($query, true);
-
         if(!empty($result)) {
-
             // if active lesson already exists
             setcookie('lesson_start', $result['started_at'], time() + (86400 * 30), "/");
             setcookie('lesson_id', $result['id'], time() + (86400 * 30), "/");
-
         } else {
             setcookie("lesson_start", "", time() + (86400 * 30), "/");
             setcookie("lesson_id", "", time() + (86400 * 30), "/");
@@ -68,10 +83,7 @@
 
     <body>
         <?php include "../../" . 'pages/navbar/navbar.php'; ?>
-
         <div class="container">
-
-
             <div id="tracker">
              <!--   <div id="activities"></div> -->
                 <footer></footer>
@@ -80,18 +92,23 @@
             <h2>Add student activity</h2>
             <form method="post"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <input type="text" id="addStudentActivity" placeholder="Lisa õpejudude tegevust" name="activity"/><br />
+                <select>
+                  <option>Teacher</option>
+                  <option>Student</option>
+                </select>
                 <input type="submit" value="Submit" name="addActivity"/><br />
             </form>
+            <?php
+            $ourarray = getActivities();
+             ?>
+            <select>
+              <?php
+              foreach ($ourarray as $key) {
+                ?><option><?php echo $key;?></option>
+                <?php
+              }
+               ?>
+            </select>
             </div>
-            <div id="addTeacher">
-            <h2>Add teacher activity</h2>
-            <input type="text" id="addTeacherActivity" placeholder="Lisa õpejudude tegevust" /><br /></button>
-            <input type="button" value="Submit"  /><br /></button>
-            </div>
-            <span id="response">
-
-            </span>
-
-
     </body>
 </html>
