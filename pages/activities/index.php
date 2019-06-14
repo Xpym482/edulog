@@ -92,6 +92,10 @@
             <h2>Add student activity</h2>
             <form method="post"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <input type="text" id="addStudentActivity" placeholder="Lisa õpejudude tegevust" name="activity"/><br />
+                <select>
+                  <option>Teacher</option>
+                  <option>Student</option>
+                </select>
                 <input type="submit" value="Submit" name="addActivity"/><br />
             </form>
             <?php
