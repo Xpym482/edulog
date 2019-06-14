@@ -1,71 +1,6 @@
 <?php
     include('../../config.php');
-
-    function Redirect($url, $permanent = false)
-    {
-        header('Location: ' . $url, true, $permanent ? 301 : 302);
-        exit();
-    }
-
-    function __construct($pdo) {
-        $this->pdo = $pdo;
-    }
-
-    function getActivities(){
-      $activities = array();
-      $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
-      $results = $db->query('SELECT activity from activities');
-      while ($row = $results->fetchArray()) {
-        array_push($activities, $row[0]);
-      }
-      /*foreach ($activities as $key) {
-        echo $key . '<br/>';
-      }*/
-      /*$db->exec('BEGIN');
-      $statement = $db->prepare('SELECT type from activities');
-      $statement->bindValue(':name', $_POST['activity']);
-      $statement->execute();
-      $db->exec('COMMIT');
-      var_dump($statement);*/
-      return $activities;
-    }
-
-    if(!empty($_POST['activity'])){
-        echo("test");
-        $addStudentActivity = $_POST['name'];
-        $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
-        $db->exec('BEGIN');
-        $statement = $db->prepare('INSERT INTO activities (activity) VALUES (:name)');
-        $statement->bindValue(':name', $_POST['activity']);
-        $statement->execute();
-        $db->exec('COMMIT');
-
-    }
-
-
-
-
-    if(isset($_COOKIE['user_id']))
-    {
-        // check if lesson already logging
-        $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
-
-        $query = "SELECT * FROM lessons WHERE ended_at IS NULL AND user='". $_COOKIE['user_id'] ."'";
-        $result = $db->querySingle($query, true);
-        if(!empty($result)) {
-            // if active lesson already exists
-            setcookie('lesson_start', $result['started_at'], time() + (86400 * 30), "/");
-            setcookie('lesson_id', $result['id'], time() + (86400 * 30), "/");
-        } else {
-            setcookie("lesson_start", "", time() + (86400 * 30), "/");
-            setcookie("lesson_id", "", time() + (86400 * 30), "/");
-        }
-
-    } else {
-        Redirect($edulog_root . 'pages/login', false);
-    }
-
-
+    require("functions.php");
 ?>
 
 <html>
@@ -88,22 +23,34 @@
              <!--   <div id="activities"></div> -->
                 <footer></footer>
             </div>
-            <div id="addStudent">
-            <h2>Add student activity</h2>
+            <div id="addTeacher">
+            <h2>Lisa õpetajate tegevused:</h2>
             <form method="post"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                <input type="text" id="addStudentActivity" placeholder="Lisa õpejudude tegevust" name="activity"/><br />
-                <select>
-                  <option>Teacher</option>
-                  <option>Student</option>
-                </select>
+                <input type="text" id="addTeacherActivity" placeholder="Kirjuta õpejudude tegevust" name="addTeacherActivity"/><br />
                 <input type="submit" value="Submit" name="addActivity"/><br />
             </form>
             <?php
-            $ourarray = getActivities();
+            $teacherArray = getTeacherActivities();
              ?>
             <select>
               <?php
-              foreach ($ourarray as $key) {
+              foreach ($teacherArray as $key) {
+                ?><option><?php echo $key;?></option>
+                <?php
+              }
+               ?>
+            </select>
+            <h2>Lisa tudengi tegevused:</h2>
+            <form method="post"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <input type="text" id="addStudentActivity" placeholder="Kirjuta tudengi tegevust" name="addStudentActivity"/><br />
+                <input type="submit" value="Submit" name="addActivity"/><br />
+            </form>
+            <?php
+            $studentArray = getStudentActivities();
+             ?>
+            <select>
+              <?php
+              foreach ($studentArray as $key) {
                 ?><option><?php echo $key;?></option>
                 <?php
               }
