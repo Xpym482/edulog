@@ -7,13 +7,16 @@
         exit();
     }
 
-
+    function __construct($pdo) {
+        $this->pdo = $pdo;
+    }
 
 
     if(isset($_COOKIE['user_id']))
     {
+
         // check if lesson already logging
-        $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
+        /*$db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
 
         $query = "SELECT * FROM lessons WHERE ended_at IS NULL AND user='". $_COOKIE['user_id'] ."'";
         $result = $db->querySingle($query, true);
@@ -28,10 +31,29 @@
             setcookie("lesson_start", "", time() + (86400 * 30), "/");
             setcookie("lesson_id", "", time() + (86400 * 30), "/");
         }
-
+        */
     } else {
         Redirect($edulog_root . 'pages/lesson_thread', false);
     }
+    function getLessons(){
+      $rooms = array();
+      $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
+      $results = $db->query('SELECT room from activities');
+      while ($row = $results->fetchArray()) {
+        array_push($rooms, $row[0]);
+      }
+      return $rooms;
+    }
+
+    if(isset($_POST['addroom'])){
+        $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
+        $db->exec('BEGIN');
+        $statement = $db->prepare('INSERT INTO activities (room) VALUES (:room)');
+        $statement->bindValue(':room', $_POST['Ruum']);
+        $statement->execute();
+        $db->exec('COMMIT');
+    }
+
 
 
 ?>
@@ -53,8 +75,7 @@
     <body>
         <div class="site-content">
             <?php include "../../" . 'pages/navbar/navbar.php'; ?>
-
-            <form id="login-form" action="<?=$_SERVER['PHP_SELF'];?>" method="post" class="logreg">
+            <form id="login-form" action="<?php $_SERVER["PHP_SELF"];?>" method="post" class="logreg">
                 <section class="box-head">
                     <h1 id="title">VALI RUUM</h1>
                     <hr>
@@ -62,7 +83,17 @@
                 <div class="login-details">
                     <section>
                         <h1 id="title">Sinu ruumid:</h1>
-                        <input id="Ruum" name="Ruum" placeholder="Kirjutage ruum">
+                        <ul>
+                          <?php
+                          $ourarray = getLessons();
+                          //var_dump($ourarray);
+                          foreach ($ourarray as $key) {
+                            ?><li><?php echo $key;?></li>
+                            <?php
+                          }
+                           ?>
+                        </ul>
+                        <!--<input id="Ruum" name="Ruum" placeholder="Kirjutage ruum">-->
                         <br>
                         <br>
                         <br>
@@ -71,12 +102,11 @@
                         <br>
                         <br>
                         <h3 id="title">LISA UUS RUUM</h3>
-                        <input id="Ruum" name="Ruum" placeholder="Kirjutage ruum">
+                        <input id="Ruum" name="Ruum" placeholder="Kirjutage ruum" input="text">
                         <hr>
                         <div class="btn-wrap">
                         <hr>
-
-                            <button id="login-btn" class="f-btn" type="submit">Edasi</button>
+                            <input id="login-btn" class="f-btn" type="submit" name="addroom" value="submit"></input>
                         </div>
                     </section>
                 </div>
