@@ -14,7 +14,7 @@
     function getActivities(){
       $activities = array();
       $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
-      $results = $db->query('SELECT type from activities');
+      $results = $db->query('SELECT activity from activities');
       while ($row = $results->fetchArray()) {
         array_push($activities, $row[0]);
       }
@@ -32,10 +32,10 @@
 
     if(!empty($_POST['activity'])){
         echo("test");
-        $addStudentActivity = $_POST['name_et'];
+        $addStudentActivity = $_POST['name'];
         $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
         $db->exec('BEGIN');
-        $statement = $db->prepare('INSERT INTO activities (name) VALUES (:name)');
+        $statement = $db->prepare('INSERT INTO activities (activity) VALUES (:name)');
         $statement->bindValue(':name', $_POST['activity']);
         $statement->execute();
         $db->exec('COMMIT');
@@ -106,12 +106,5 @@
                 </select>
             </form>
             </div>
-            <div id="addTeacher">
-            <h2>Add teacher activity</h2>
-            <input type="text" id="addTeacherActivity" placeholder="Lisa õpejudude tegevust" /><br /></button>
-            <input type="button" value="Submit"  /><br /></button>
-            </div>
-            <span id="response">
-            </span>
     </body>
 </html>
