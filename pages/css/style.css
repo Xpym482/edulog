@@ -1,4 +1,52 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap");
+.red-1 {
+  background-color: rgba(184, 0, 0, 0.5);
+}
+
+.red-2 {
+  background-color: rgba(255, 74, 74, 0.5);
+}
+
+.red-3 {
+  background-color: rgba(255, 168, 168, 0.5);
+}
+
+.green-1 {
+  background-color: rgba(0, 144, 0, 0.5);
+}
+
+.green-2 {
+  background-color: rgba(67, 214, 40, 0.5);
+}
+
+.green-3 {
+  background-color: rgba(127, 255, 90, 0.5);
+}
+
+.blue-1 {
+  background-color: rgba(0, 0, 131, 0.5);
+}
+
+.blue-2 {
+  background-color: rgba(72, 60, 211, 0.5);
+}
+
+.blue-3 {
+  background-color: rgba(143, 131, 255, 0.5);
+}
+
+.gray-1 {
+  background-color: rgba(80, 80, 80, 0.5);
+}
+
+.gray-2 {
+  background-color: rgba(140, 140, 140, 0.5);
+}
+
+.gray-3 {
+  background-color: rgba(200, 200, 200, 0.5);
+}
+
 * {
   margin: 0;
 }
@@ -558,27 +606,13 @@ div.logreg {
   position: absolute;
 }
 
-.circle {
-  display: block;
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  background: black;
-  border: none;
-  cursor: pointer;
-  float: right;
-}
-
 .delete-button {
-  margin-right: 40px;
+  margin-right: 5px;
   cursor: pointer;
 }
 
-.delete-button::before {
-  content: "X";
-  color: #000;
-  font-weight: 1000;
-  font-size: 27px;
+.log-object {
+  margin-right: 20px;
 }
 
 .wrapper-menu {
