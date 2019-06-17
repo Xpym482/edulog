@@ -1,15 +1,16 @@
 <?php
     include('./config.php');
-    require('pages/login/index.php');
+    //require('pages/login/login.php');
     //redirect to tracker if logged in
 
-    if(isset($_SESSION["id"])){
+
+  /*  if(isset($_SESSION["id"])){
       Redirect($edulog_root .'pages/tracker', false);
     }
-    else {
+    else {*/
         // redirect to login
-        Redirect($edulog_root .'pages/login', false);
-    }
+    header('Location:' . $edulog_root .'pages/login');
+  //  }
 
     /*if(isset($_COOKIE['user_id'])) {
         Redirect($edulog_root .'pages/tracker', false);
@@ -20,10 +21,4 @@
     }*/
 
 
-    // helper functions
-    function Redirect($url, $permanent = false)
-    {
-        header('Location: ' . $url, true, $permanent ? 301 : 302);
-        exit();
-    }
 ?>

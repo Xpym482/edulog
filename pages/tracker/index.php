@@ -12,8 +12,8 @@
 
 
 
-  //  if(isset($_COOKIE['user_id']))
-  //  {
+    if(isset($_COOKIE['user_id']))
+    {
         // check if lesson already logging
         $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
 
@@ -31,9 +31,9 @@
             setcookie("lesson_id", "", time() + (86400 * 30), "/");
         }
 
-  /*  } else {
+    } else {
         Redirect($edulog_root . 'pages/login', false);
-    }*/
+    }
 
 
 ?>

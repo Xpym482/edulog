@@ -3,14 +3,41 @@
     $invalid = false;
 
     include('../../config.php');
-    session_start();
+    require('login.php');
+
+    $email = "";
+    $emailError = "";
+    $passwordError = "";
+    $notice = "";
+    if(isset($_POST["login"])){
+
+    	if (isset($_POST["login-email"]) and !empty($_POST["login-email"])){
+    	     $email = $_POST["login-email"];
+        } else {
+    	     $emailError = "Palun sisesta kasutajatunnusena e-posti aadress!";
+        }
+
+        if (!isset($_POST["login-password"])) {
+    	     $passwordError = "Palun sisesta parool, vähemalt 8 märki!";
+        }
+
+      if(empty($emailError) and empty($passwordError)){
+    	  $notice = signin($email, $_POST["login-password"]);
+
+    	 } else {
+    	  $notice = "Ei saa sisse logida!";
+      }
+      echo $passwordError;
+      echo $emailError;
+    }
+
     /*function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
     }*/
 
-    if($_GET) {
+  /*  if($_GET) {
         $timezone_name = timezone_name_from_abbr("", $_GET['time_offset']*60, false);
         setcookie('time_offset', $timezone_name, time() + (86400 * 30), "/");
     }
@@ -52,7 +79,7 @@
         } else {
             $invalid = true;
         }
-    }
+    }*/
 
 ?>
 
@@ -93,12 +120,14 @@
                     </section>
                     <section>
                         <div class="btn-wrap">
-                            <button id="login-btn" class="f-btn" type="submit">Edasi</button>
+                            <button id="login-btn" class="f-btn" type="submit" name="login">Edasi</button>
                         </div>
                     </section>
                 </div>
             </form>
-            <?php if($invalid) {
+            <?php
+            echo $notice;
+            if($invalid) {
                 echo '<span style="color: red; font-weight: bold; margin-top: 10px;" id="invalid-combination">Vale salasõna või emaili kombinatsioon</span>';
             } ?>
             <p class="not-user">Ei ole veel kasutaja? <a class="links" href="../register">Registreeru siin</a></p>
