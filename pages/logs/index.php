@@ -1,12 +1,8 @@
 <?php
 
 include '../../config.php';
+require_once('../login/login.php');
 
-function Redirect($url, $permanent = false)
-{
-    header('Location: ' . $url, true, $permanent ? 301 : 302);
-    exit();
-}
 
 if(isset($_COOKIE['user_id']))
 {

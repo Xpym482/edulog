@@ -1,23 +1,9 @@
 <?php
 
     include('../../../config.php');
+    require_once('../../login/login.php');
 
-
-    function Redirect($url, $permanent = false)
-    {
-        header('Location: ' . $url, true, $permanent ? 301 : 302);
-        exit();
-    }
-
-    if(isset($_COOKIE['user_id'])) {
-
-    } else {
-
-        // if no cookie, return to login
-        Redirect($edulog_root . 'pages/login', false);
-    }
-
-
+    if(isset($_SESSION['user-name'])) {
 
 ?>
 <!DOCTYPE html>
@@ -59,3 +45,12 @@
         </div><!-- end of container -->
     </body>
 </html>
+
+<?php
+} else {
+
+    // if no cookie, return to login
+    Redirect($edulog_root . 'pages/login', false);
+}
+
+ ?>
