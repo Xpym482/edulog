@@ -45,7 +45,7 @@
     <?php endif;?>
 </aside>
 <!-- end of markup -->
-<script src="functions.js"></script>
+<script src="../functions.js"></script>
 <script>
     var wrapperMenu = document.querySelector('.wrapper-menu');
 
