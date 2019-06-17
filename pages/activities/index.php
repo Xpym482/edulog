@@ -12,8 +12,6 @@
         <meta charset="utf-8">
         <title>EduLog</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-        <script src="js.cookie.js"></script>
-        <script src="main.js"></script>
     </head>
 
     <body>

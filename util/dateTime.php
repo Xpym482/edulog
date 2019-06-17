@@ -4,7 +4,7 @@ function dateUTC($format, $timestamp = null)
     if ($timestamp === null) $timestamp = time();
 
     $tz = date_default_timezone_get();
-    date_default_timezone_set('Etc/GMT+3');
+    date_default_timezone_set('Etc/GMT-3');
 
     $result = date($format, $timestamp);
 

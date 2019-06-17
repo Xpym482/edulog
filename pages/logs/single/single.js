@@ -145,14 +145,17 @@ $(document).ready(function() {
 
         // total time
         var total = (dateformatter(lesson['ended_at']) - dateformatter(lesson['started_at'])) / 1000
+        console.log(total);
         $('#total_duration span').html( "Total duration: " + secondsToHMS(Math.floor(total)));
 
         // group by type
         var grouped_by_type = logs.reduce(function (r, a) {
             r[a.type] = r[a.type] || [];
             r[a.type].push(a);
+            console.log(r);
             return r;
         }, Object.create(null));
+
 
         // group by slug
         var grouped_by_slug = {};
@@ -194,7 +197,8 @@ $(document).ready(function() {
                            css: {
                                background: "url('http://saargraafika.ee/edulog/gradients/" + backgrounds[group][slug] + "')",
                                width: Math.floor((part / total) * 100) + 'vw',
-                               marginLeft: Math.floor((((dateformatter(log['started_at']) - dateformatter(lesson['started_at']))) / total) * 100) + 'vw'
+                               marginLeft: Math.floor((((dateformatter(log['started_at']) - dateformatter(lesson['started_at'])) / 1000) / total) * 100) + 'vw'
+                               
                            }
                        }));
                     // add log to list
@@ -208,8 +212,12 @@ $(document).ready(function() {
                         </a>
                         `
                     )
+                    console.log(log['started_at']);
+                    console.log(log['ended_at']);
+                    console.log(lesson['started_at']);
+                    console.log(lesson['ended_at']);
                 })
-
+                
 
             })
         })
