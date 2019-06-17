@@ -1,7 +1,6 @@
 <?php
 
     $invalid = false;
-
     include('../../config.php');
     require('login.php');
 
@@ -9,26 +8,27 @@
     $emailError = "";
     $passwordError = "";
     $notice = "";
-    if(isset($_POST["login"])){
+    if(!isset($_SESSION["user-name"])){
+      if(isset($_POST["login"])){
+      	if (isset($_POST["login-email"]) and !empty($_POST["login-email"])){
+      	     $email = $_POST["login-email"];
+          } else {
+      	     $emailError = "Palun sisesta kasutajatunnusena e-posti aadress!";
+          }
 
-    	if (isset($_POST["login-email"]) and !empty($_POST["login-email"])){
-    	     $email = $_POST["login-email"];
-        } else {
-    	     $emailError = "Palun sisesta kasutajatunnusena e-posti aadress!";
+          if (!isset($_POST["login-password"])) {
+      	     $passwordError = "Palun sisesta parool, vähemalt 8 märki!";
+          }
+
+        if(empty($emailError) and empty($passwordError)){
+      	  $notice = signin($email, $_POST["login-password"]);
+      	 } else {
+      	  $notice = "Ei saa sisse logida!";
         }
-
-        if (!isset($_POST["login-password"])) {
-    	     $passwordError = "Palun sisesta parool, vähemalt 8 märki!";
-        }
-
-      if(empty($emailError) and empty($passwordError)){
-    	  $notice = signin($email, $_POST["login-password"]);
-
-    	 } else {
-    	  $notice = "Ei saa sisse logida!";
       }
-      echo $passwordError;
-      echo $emailError;
+    }
+    else{
+      header("Location: http://localhost/edulog/pages/tracker");
     }
 
     /*function Redirect($url, $permanent = false)
@@ -99,7 +99,7 @@
 
     <body>
         <div class="site-content">
-            <?php include "../../" . 'pages/navbar/navbar.php'; ?>
+            <?php //include "../../" . 'pages/navbar/navbar.php'; ?>
 
             <form id="login-form" action="<?=$_SERVER['PHP_SELF'];?>" method="post" class="logreg">
                 <section class="box-head">

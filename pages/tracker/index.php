@@ -1,6 +1,6 @@
 <?php
     include('../../config.php');
-    require('../login/login.php');
+    require_once('../login/login.php');
 
 
     /*function Redirect($url, $permanent = false)
@@ -8,9 +8,6 @@
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
     }*/
-
-
-
 
 
     if(isset($_SESSION["id"]))
@@ -31,12 +28,6 @@
             setcookie("lesson_start", "", time() + (86400 * 30), "/");
             setcookie("lesson_id", "", time() + (86400 * 30), "/");
         }
-
-    } else {
-        Redirect($edulog_root . 'pages/login', false);
-    }
-
-
 ?>
 
 <html>
@@ -93,3 +84,12 @@
         </div>
     </body>
 </html>
+
+<?php
+} else {
+    Redirect($edulog_root . 'pages/login', false);
+}
+
+
+
+ ?>

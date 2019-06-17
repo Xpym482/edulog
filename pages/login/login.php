@@ -4,7 +4,6 @@ include('../../config.php');
 // helper functions
 session_start();
 
-
 function signin($email, $password){
   $db = new Sqlite3('../../database.sqlite', SQLITE3_OPEN_READWRITE);
   //get user and set token
@@ -13,7 +12,6 @@ function signin($email, $password){
   if(empty($result)) {
       // invalid email or password combination
       $invalid = true;
-      setcookie('answer', $invalid);
       //header("../tracker/index.php");
 
   } else {
@@ -21,19 +19,14 @@ function signin($email, $password){
       // set cookie and redirect to tracker
       setcookie('user_id', $result['id'], time() + (86400 * 30), "/");
       setcookie('locale', $_POST['login-locale'], time() + (86400 * 30), "/");
+      $_SESSION["user-name"] = $email;
       $_SESSION["id"] =  $result['id'];
-      //var_dump($_SESSION['user_email']);
       //header("http://localhost/edulog/pages/tracker/index.php");
       header("Location: http://localhost/edulog/pages/tracker");
       //Redirect($edulog_root .'pages/tracker/index.php', false);
-      setcookie('answer', $invalid);
 
   }
 }
-
-
-
-
 
 function Redirect($url, $permanent = false)
 {
