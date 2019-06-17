@@ -52,6 +52,10 @@ a:hover {
   text-decoration: none;
 }
 
+.form-control {
+  margin-top: 0px !important;
+}
+
 * {
   margin: 0;
 }
@@ -242,6 +246,43 @@ h4 {
 
 .slide-cam-audio .icon-slide {
   height: 70%;
+}
+
+.container-1 {
+  margin: 100px auto;
+  width: 400px;
+}
+
+.container-1 .settings-title {
+  text-align: center;
+}
+
+.container-1 .vertical-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container-1 .rooms {
+  margin-top: 30px;
+}
+
+.delete-room {
+  color: red;
+  font-weight: 700;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+
+.delete-room:hover {
+  color: #7a0000;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
 }
 
 .settings-layout {
