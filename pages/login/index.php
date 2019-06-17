@@ -3,12 +3,12 @@
     $invalid = false;
 
     include('../../config.php');
-
-    function Redirect($url, $permanent = false)
+    session_start();
+    /*function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
-    }
+    }*/
 
     if($_GET) {
         $timezone_name = timezone_name_from_abbr("", $_GET['time_offset']*60, false);
@@ -16,9 +16,9 @@
     }
 
     if($_POST) {
-
+        var_dump($_GET);
         //check if all required values are filled
-        if( !empty($_POST['login-email']) && !empty($_POST['login-password']) )
+        if( isset($_POST['login-email']))
         {
             // make db instance
             $db = new Sqlite3('../../database.sqlite', SQLITE3_OPEN_READWRITE);
@@ -29,14 +29,25 @@
 
                 // invalid email or password combination
                 $invalid = true;
+                setcookie('answer', $invalid);
+                header("../tracker/index.php");
+
+
 
             } else {
                 $invalid = false;
                 // set cookie and redirect to tracker
                 setcookie('user_id', $result['id'], time() + (86400 * 30), "/");
-                setcookie('locale', $_POST['login-locale'], time() + (86400 * 30), "/");
-                Redirect($edulog_root . 'pages/lesson_room', false);
+                //setcookie('locale', $_POST['login-locale'], time() + (86400 * 30), "/");
+                $_SESSION["id"] =  $result['id'];
+                //var_dump($_SESSION['user_email']);
+                header("http://localhost/edulog/pages/tracker/index.php");
+              //  Redirect($edulog_root, false);
+                setcookie('answer', $invalid);
+
             }
+            //Redirect($edulog_root, false);
+
 
         } else {
             $invalid = true;

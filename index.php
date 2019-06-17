@@ -1,13 +1,23 @@
 <?php
     include('./config.php');
+    require('pages/login/index.php');
     //redirect to tracker if logged in
-    if(isset($_COOKIE['user_id'])) {
+
+    if(isset($_SESSION["id"])){
+      Redirect($edulog_root .'pages/tracker', false);
+    }
+    else {
+        // redirect to login
+        Redirect($edulog_root .'pages/login', false);
+    }
+
+    /*if(isset($_COOKIE['user_id'])) {
         Redirect($edulog_root .'pages/tracker', false);
     } else {
 
         // redirect to login
         Redirect($edulog_root .'pages/login', false);
-    }
+    }*/
 
 
     // helper functions
