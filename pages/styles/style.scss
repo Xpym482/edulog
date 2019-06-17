@@ -1,4 +1,4 @@
-@import "variables", "colors";
+@import "variables", "colors", "custom-bootstrap";
 
 * {
   margin: 0;
@@ -112,6 +112,68 @@ h4 {
   opacity: 0;
   pointer-events: none;
   transition: opacity ease 1s;
+}
+
+.slide-cam-audio {
+  position: absolute;
+  top: 7%;
+  left: 20px;
+  display: inline-flex;
+  .slide-cam {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .slide-audio {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .icon-slide {
+    height: 70%;
+  }
+}
+
+.settings-layout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  list-style: none;
+  ul {
+    margin: 0;
+    padding: 0;
+    margin-left: 0px;
+  }
+  li {
+    padding: 0;
+    width: 350px;
+  }
+  a {
+    display: block;
+    color: black;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    background-color: $lightgray;
+    @include transition;
+    &:hover {
+      background-color: $mediumgray;
+      @include transition;
+    }
+  }
 }
 
 .bot-btn {
