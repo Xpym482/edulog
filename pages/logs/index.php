@@ -45,7 +45,7 @@ date_default_timezone_set($_COOKIE['time_offset']);
 
 $result = [];
 while ($row = $lessons->fetchArray()) {
-    $timeStamp = strtotime($row["started_at"].' UTC');
+    $timeStamp = strtotime($row["started_at"].' GMT+01');
     $row["started_at"] = date("Y-m-d H:i:s", $timeStamp);
     array_push($result, $row);
 }
