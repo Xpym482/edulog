@@ -107,6 +107,5 @@ mail($to, $subject, $message, $headers);*/
         </div>
     </div><!-- end of container -->
 </body>
-
 <script src="functions.js"></script>
 </html>

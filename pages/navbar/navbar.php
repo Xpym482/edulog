@@ -1,3 +1,8 @@
+      <?php
+    include('../../config.php');
+
+?>
+
 
 <nav>
     <div class="wrapper-menu">
@@ -12,12 +17,9 @@
 
     <?php if($_COOKIE['locale'] == 'et') : ?>
     <ul>
-        <li><a href="<?php echo $edulog_root . 'pages/activities';?>">Lisa tegevusi</a></li>
-        <li><a href="<?php echo $edulog_root . 'pages/tracker';?>">Tunni logimine</a></li>
-        <li><a href="<?php echo $edulog_root . 'pages/logs';?>">Tundide logi</a></li>
-        <li><a href="<?php echo $edulog_root . 'pages/lesson_thread';?>">Tundide teema</a></li>
-        <li><a href="<?php echo $edulog_root . 'pages/lesson_room';?>">Tundide room</a></li>
-        <li><a href="<?php echo $edulog_root . 'pages/lesson_room';?>">Seadistused</a></li>
+        <li><a href="<?php echo $edulog_root . 'pages/tracker';?>">Tundide logimine</a></li>
+        <li><a href="<?php echo $edulog_root . 'pages/logs';?>">Tundide logid</a></li>
+        <li><a href="<?php echo $edulog_root . 'pages/settings';?>">Seadistused</a></li>
         <li><a id="logout" href="<?php echo $edulog_root . 'pages/login';?>">Logi välja</a></li>
 
        <?php if(strstr($_SERVER["SCRIPT_NAME"], 'logs')) : ?>
@@ -45,7 +47,7 @@
     <?php endif;?>
 </aside>
 <!-- end of markup -->
-<script src="functions.js"></script>
+<script src="../functions.js"></script>
 <script>
     var wrapperMenu = document.querySelector('.wrapper-menu');
 

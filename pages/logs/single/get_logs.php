@@ -48,9 +48,9 @@
 
             $logs = [];
             while ( $row = $activities_raw->fetchArray() ) {
-                $timeStamp = strtotime($row["started_at"].' GMT+01');
+                $timeStamp = strtotime($row["started_at"].' GMT+03');
                 $row["started_at"] = date("Y-m-d H:i:s", $timeStamp);
-                $timeStamp = strtotime($row["ended_at"].' GMT+01');
+                $timeStamp = strtotime($row["ended_at"].' GMT+03');
                 $row["ended_at"] = date("Y-m-d H:i:s", $timeStamp);
                 array_push($logs, $row);
                 fputcsv($fp, $row);
