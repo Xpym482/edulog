@@ -20,7 +20,7 @@ function signin($email, $password){
       $invalid = false;
       // set cookie and redirect to tracker
       setcookie('user_id', $result['id'], time() + (86400 * 30), "/");
-      //setcookie('locale', $_POST['login-locale'], time() + (86400 * 30), "/");
+      setcookie('locale', $_POST['login-locale'], time() + (86400 * 30), "/");
       $_SESSION["id"] =  $result['id'];
       //var_dump($_SESSION['user_email']);
       //header("http://localhost/edulog/pages/tracker/index.php");
