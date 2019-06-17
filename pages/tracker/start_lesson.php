@@ -9,7 +9,7 @@
         $db->exec('BEGIN');
         $statement = $db->prepare('INSERT INTO lessons (user, started_at) VALUES (:user, :started_at)');
         $statement->bindValue(':user', $_POST['user_id']);
-        $statement->bindValue(':started_at', dateUTC('Y-m-d H:i:s'));
+        $statement->bindValue(':started_at', date('Y-m-d H:i:s', strtotime("now +1 GMT")));
         $statement->execute();
         $db->exec('COMMIT');
 
