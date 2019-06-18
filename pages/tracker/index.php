@@ -2,11 +2,11 @@
     include('../../config.php');
     session_start();
 
-    function Redirect($url, $permanent = false)
+    /*function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
-    }
+    }*/
 
 
 
@@ -30,12 +30,6 @@
             setcookie("lesson_start", "", time() + (86400 * 30), "/");
             setcookie("lesson_id", "", time() + (86400 * 30), "/");
         }
-
-    } else {
-        Redirect($edulog_root . 'pages/login', false);
-    }
-
-
 ?>
 
 <html>
@@ -92,3 +86,12 @@
         </div>
     </body>
 </html>
+
+<?php
+} else {
+    Redirect($edulog_root . 'pages/login', false);
+}
+
+
+
+ ?>
