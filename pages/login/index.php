@@ -1,24 +1,51 @@
 <?php
 
     $invalid = false;
-
     include('../../config.php');
+    require('login.php');
 
-    function Redirect($url, $permanent = false)
+    $email = "";
+    $emailError = "";
+    $passwordError = "";
+    $notice = "";
+    if(!isset($_SESSION["user-name"])){
+      if(isset($_POST["login"])){
+      	if (isset($_POST["login-email"]) and !empty($_POST["login-email"])){
+      	     $email = $_POST["login-email"];
+          } else {
+      	     $emailError = "Palun sisesta kasutajatunnusena e-posti aadress!";
+          }
+
+          if (!isset($_POST["login-password"])) {
+      	     $passwordError = "Palun sisesta parool, vähemalt 8 märki!";
+          }
+
+        if(empty($emailError) and empty($passwordError)){
+      	  $notice = signin($email, $_POST["login-password"]);
+      	 } else {
+      	  $notice = "Ei saa sisse logida!";
+        }
+      }
+    }
+    else{
+      header("Location: http://localhost/edulog/pages/tracker");
+    }
+
+    /*function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
-    }
+    }*/
 
-    if($_GET) {
+  /*  if($_GET) {
         $timezone_name = timezone_name_from_abbr("", $_GET['time_offset']*60, false);
         setcookie('time_offset', $timezone_name, time() + (86400 * 30), "/");
     }
 
     if($_POST) {
-
+        var_dump($_GET);
         //check if all required values are filled
-        if( !empty($_POST['login-email']) && !empty($_POST['login-password']) )
+        if( isset($_POST['login-email']))
         {
             // make db instance
             $db = new Sqlite3('../../database.sqlite', SQLITE3_OPEN_READWRITE);
@@ -29,19 +56,30 @@
 
                 // invalid email or password combination
                 $invalid = true;
+                setcookie('answer', $invalid);
+                header("../tracker/index.php");
+
+
 
             } else {
                 $invalid = false;
                 // set cookie and redirect to tracker
                 setcookie('user_id', $result['id'], time() + (86400 * 30), "/");
-                setcookie('locale', $_POST['login-locale'], time() + (86400 * 30), "/");
-                Redirect($edulog_root . 'pages/lesson_room', false);
+                //setcookie('locale', $_POST['login-locale'], time() + (86400 * 30), "/");
+                $_SESSION["id"] =  $result['id'];
+                //var_dump($_SESSION['user_email']);
+                header("http://localhost/edulog/pages/tracker/index.php");
+              //  Redirect($edulog_root, false);
+                setcookie('answer', $invalid);
+
             }
+            //Redirect($edulog_root, false);
+
 
         } else {
             $invalid = true;
         }
-    }
+    }*/
 
 ?>
 
@@ -61,7 +99,7 @@
 
     <body>
         <div class="site-content">
-            <?php include "../../" . 'pages/navbar/navbar.php'; ?>
+            <?php //include "../../" . 'pages/navbar/navbar.php'; ?>
 
             <form id="login-form" action="<?=$_SERVER['PHP_SELF'];?>" method="post" class="logreg">
                 <section class="box-head">
@@ -82,12 +120,14 @@
                     </section>
                     <section>
                         <div class="btn-wrap">
-                            <button id="login-btn" class="f-btn" type="submit">Edasi</button>
+                            <button id="login-btn" class="f-btn" type="submit" name="login">Edasi</button>
                         </div>
                     </section>
                 </div>
             </form>
-            <?php if($invalid) {
+            <?php
+            echo $notice;
+            if($invalid) {
                 echo '<span style="color: red; font-weight: bold; margin-top: 10px;" id="invalid-combination">Vale salasõna või emaili kombinatsioon</span>';
             } ?>
             <p class="not-user">Ei ole veel kasutaja? <a class="links" href="../register">Registreeru siin</a></p>

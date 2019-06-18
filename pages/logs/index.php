@@ -1,12 +1,8 @@
 <?php
 
 include '../../config.php';
+require_once('../login/login.php');
 
-function Redirect($url, $permanent = false)
-{
-    header('Location: ' . $url, true, $permanent ? 301 : 302);
-    exit();
-}
 
 if(isset($_COOKIE['user_id']))
 {
@@ -41,7 +37,7 @@ $statement->bindValue(':user', $_COOKIE['user_id']);
 $lessons = $statement->execute();
 
 $tz = date_default_timezone_get();
-date_default_timezone_set($_COOKIE['time_offset']);       
+date_default_timezone_set($_COOKIE['time_offset']);
 
 $result = [];
 while ($row = $lessons->fetchArray()) {
@@ -96,7 +92,7 @@ mail($to, $subject, $message, $headers);*/
 
             <div>
                 <a
-                    href="../logs/single/index.php?log=<?php echo $log['id']; ?>" class="log-object"><label><?php echo $log['started_at']; ?></label></a>
+                    href="single/index.php?log=<?php echo $log['id']; ?>" class="log-object"><label><?php echo $log['started_at']; ?></label></a>
                 <span>
                     <img class="delete-button" src="../assets/remove.svg" onclick="deleteLog(<?php echo $log['id']; ?>)" >
                     <img class="circle" src="../assets/download.svg" onclick="fetchCsv(<?php echo $log['id']; ?>)">

@@ -1,18 +1,16 @@
 <?php
     include('../../config.php');
+    require_once('../login/login.php');
 
 
-    function Redirect($url, $permanent = false)
+    /*function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
-    }
+    }*/
 
 
-
-
-
-    if(isset($_COOKIE['user_id']))
+    if(isset($_SESSION["id"]))
     {
         // check if lesson already logging
         $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
@@ -30,12 +28,6 @@
             setcookie("lesson_start", "", time() + (86400 * 30), "/");
             setcookie("lesson_id", "", time() + (86400 * 30), "/");
         }
-
-    } else {
-        Redirect($edulog_root . 'pages/login', false);
-    }
-
-
 ?>
 
 <html>
@@ -92,3 +84,12 @@
         </div>
     </body>
 </html>
+
+<?php
+} else {
+    Redirect($edulog_root . 'pages/login', false);
+}
+
+
+
+ ?>
