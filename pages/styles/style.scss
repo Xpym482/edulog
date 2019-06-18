@@ -26,6 +26,16 @@ body {
   overflow-y: hidden;
 }
 
+.container-1 {
+  width: 400px;
+  margin: 100px auto;
+}
+
+.settings-title {
+  font-size: 25px;
+  text-align: center;
+}
+
 #activities,
 #tracker {
   margin-top: 10%;
@@ -75,6 +85,20 @@ h4 {
   justify-content: center;
   height: 60px;
   position: relative;
+}
+
+.delete-room {
+  color: red;
+  font-weight: 700;
+  @include transition;
+  &:hover {
+    cursor: pointer;
+    color: rgb(167, 0, 0);
+  }
+}
+
+.vertical-center {
+  justify-content: center;
 }
 
 .activity span {

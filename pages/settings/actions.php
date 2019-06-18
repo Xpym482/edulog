@@ -43,61 +43,153 @@
     <?php include "../navbar/navbar.php" ?>
     <div class="container-fluid">
       <div class="container-1">
-          <h1 class="settings-title">Sinu klassid</h1>
+          <h1 class="settings-title">Õpetaja tegevused</h1>
 
           <!-- here goes first element. You can get your needed elements from here. Clean these comments after -->
             <div class="row vertical-center rooms" id="element1">
 
-                    <div class="col-5">KLASS NO1</div>
+                    <div class="col-7">TEACHER ACTION NO1</div>
                     <div class="col-3 delete-room">KUSTUTA</div>
 
             </div>
 
             <div class="row vertical-center" id="element2">
 
-                    <div class="col-5">KLASS NO2</div>
+                    <div class="col-7">TEACHER ACTION NO2</div>
                     <div class="col-3 delete-room">KUSTUTA</div>
 
             </div>
 
             <div class="row vertical-center" id="element3">
 
-                    <div class="col-5">KLASS NO3</div>
+                    <div class="col-7">TEACHER ACTION NO3</div>
                     <div class="col-3 delete-room">KUSTUTA</div>
 
             </div>
 
             <div class="row vertical-center" id="element4">
 
-                    <div class="col-5">KLASS NO4</div>
+                    <div class="col-7">TEACHER ACTION NO4</div>
                     <div class="col-3 delete-room">KUSTUTA</div>
 
             </div>
 
             <div class="row vertical-center" id="element5">
 
-                    <div class="col-5">KLASS NO5</div>
+                    <div class="col-7">TEACHER ACTION NO5</div>
                     <div class="col-3 delete-room">KUSTUTA</div>
 
             </div>
 
+      </div>
+
+      <div class="container-1">
+        <h1 class="settings-title">Lisa uus õpetaja tegevus</h1>
+
+          
+        <div>
+
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Õpetaja tegevus" aria-label="Text input with dropdown button">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vali värv</button>
+              <div class="dropdown-menu">
+              <a class="dropdown-item red-1" href="#">Punane 1</a>
+              <a class="dropdown-item red-2" href="#">Punane 2</a>
+              <a class="dropdown-item red-3" href="#">Punane 3</a>
+              <a class="dropdown-item green-1" href="#">Roheline 1</a>
+              <a class="dropdown-item green-2" href="#">Roheline 2</a>
+              <a class="dropdown-item green-3" href="#">Roheline 3</a>
+              <a class="dropdown-item blue-1" href="#">Sinine 1</a>
+              <a class="dropdown-item blue-2" href="#">Sinine 2</a>
+              <a class="dropdown-item blue-3" href="#">Sinine 3</a>
+              <a class="dropdown-item gray-1" href="#">Hall 1</a>
+              <a class="dropdown-item gray-2" href="#">Hall 2</a>
+              <a class="dropdown-item gray-3" href="#">Hall 3</a>
+              </div>
+            <button class="btn btn-outline-secondary" type="button">Lisa tegevus</button>
+          </div>
+
+        </div>
+
+        </div>
+      
+      </div> <!-- end of container-1 -->
+
+      <hr>
+
+      <div class="container-1">
+          <h1 class="settings-title">Õpilase tegevused</h1>
+
+          <!-- here goes first element. You can get your needed elements from here. Clean these comments after -->
+            <div class="row vertical-center rooms" id="element1">
+
+                    <div class="col-7">STUDENT ACTION NO1</div>
+                    <div class="col-3 delete-room">KUSTUTA</div>
+
+            </div>
+
+            <div class="row vertical-center" id="element2">
+
+                    <div class="col-7">STUDENT ACTION NO2</div>
+                    <div class="col-3 delete-room">KUSTUTA</div>
+
+            </div>
+
+            <div class="row vertical-center" id="element3">
+
+                    <div class="col-7">STUDENT ACTION NO3</div>
+                    <div class="col-3 delete-room">KUSTUTA</div>
+
+            </div>
+
+            <div class="row vertical-center" id="element4">
+
+                    <div class="col-7">STUDENT ACTION NO4</div>
+                    <div class="col-3 delete-room">KUSTUTA</div>
+
+            </div>
+
+            <div class="row vertical-center" id="element5">
+
+                    <div class="col-7">TEACHER ACTION NO5</div>
+                    <div class="col-3 delete-room">KUSTUTA</div>
+
+            </div>
 
       </div>
 
       <div class="container-1">
-          <h1 class="settings-title">Lisa uus klass</h1>
+        <h1 class="settings-title">Lisa uus õpilase tegevus</h1>
 
-        
+          
         <div>
 
-        <div class="input-group mb-3 rooms">
-            <input type="text" class="form-control" placeholder="Lisa uus ruum" aria-label="new-room" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">Salvesta</button>
-            </div>
-        </div>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Õpilase tegevus" aria-label="Text input with dropdown button">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vali värv</button>
+              <div class="dropdown-menu">
+              <a class="dropdown-item red-1" href="#">Punane 1</a>
+              <a class="dropdown-item red-2" href="#">Punane 2</a>
+              <a class="dropdown-item red-3" href="#">Punane 3</a>
+              <a class="dropdown-item green-1" href="#">Roheline 1</a>
+              <a class="dropdown-item green-2" href="#">Roheline 2</a>
+              <a class="dropdown-item green-3" href="#">Roheline 3</a>
+              <a class="dropdown-item blue-1" href="#">Sinine 1</a>
+              <a class="dropdown-item blue-2" href="#">Sinine 2</a>
+              <a class="dropdown-item blue-3" href="#">Sinine 3</a>
+              <a class="dropdown-item gray-1" href="#">Hall 1</a>
+              <a class="dropdown-item gray-2" href="#">Hall 2</a>
+              <a class="dropdown-item gray-3" href="#">Hall 3</a>
+              </div>
+            <button class="btn btn-outline-secondary" type="button">Lisa tegevus</button>
+          </div>
 
         </div>
+      
+      </div> <!-- end of container-1 -->
+
 
 
     </div>
