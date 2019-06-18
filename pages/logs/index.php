@@ -5,11 +5,6 @@ include '../../config.php';
 
 session_start();
 
-function Redirect($url, $permanent = false)
-{
-    header('Location: ' . $url, true, $permanent ? 301 : 302);
-    exit();
-}
 
 if(isset($_SESSION['user-name']))
 {
@@ -48,7 +43,7 @@ date_default_timezone_set($_COOKIE['time_offset']);
 
 $result = [];
 while ($row = $lessons->fetchArray()) {
-    $timeStamp = strtotime($row["started_at"].' GMT+03');
+    $timeStamp = strtotime($row["started_at"].' GMT+01');
     $row["started_at"] = date("Y-m-d H:i:s", $timeStamp);
     array_push($result, $row);
 }
@@ -99,7 +94,7 @@ mail($to, $subject, $message, $headers);*/
 
             <div>
                 <a
-                    href="../logs/single/index.php?log=<?php echo $log['id']; ?>" class="log-object"><label><?php echo $log['started_at']; ?></label></a>
+                    href="single/index.php?log=<?php echo $log['id']; ?>" class="log-object"><label><?php echo $log['started_at']; ?></label></a>
                 <span>
                     <img class="delete-button" src="../assets/remove.svg" onclick="deleteLog(<?php echo $log['id']; ?>)" >
                     <img class="circle" src="../assets/download.svg" onclick="fetchCsv(<?php echo $log['id']; ?>)">
