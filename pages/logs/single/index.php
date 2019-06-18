@@ -23,7 +23,7 @@
 
     <body>
         <div class="container">
-            <?php include 'navbar.php'; ?>
+            <?php include "../../../" . 'pages/navbar/navbar.php'; ?>
             <div class="logreg">
                 <section class="box-head">
                     <h1 id="title">Tundide logi</h1>

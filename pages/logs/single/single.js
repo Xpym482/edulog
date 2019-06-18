@@ -152,10 +152,8 @@ $(document).ready(function() {
         var grouped_by_type = logs.reduce(function (r, a) {
             r[a.type] = r[a.type] || [];
             r[a.type].push(a);
-            console.log(r);
             return r;
         }, Object.create(null));
-
 
         // group by slug
         var grouped_by_slug = {};
