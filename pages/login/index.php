@@ -37,12 +37,12 @@
         exit();
     }*/
 
-  /*  if($_GET) {
+    if($_GET) {
         $timezone_name = timezone_name_from_abbr("", $_GET['time_offset']*60, false);
         setcookie('time_offset', $timezone_name, time() + (86400 * 30), "/");
     }
 
-    if($_POST) {
+    /*if($_POST) {
         var_dump($_GET);
         //check if all required values are filled
         if( isset($_POST['login-email']))
