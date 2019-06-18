@@ -1,11 +1,13 @@
 <?php
     include('../../config.php');
 
+
     function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
     }
+
 
 
 
@@ -47,6 +49,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         <script src="js.cookie.js"></script>
         <script src="main.js"></script>
+        <script src="../navbar.js"></script>
     </head>
 
     <body>
@@ -54,6 +57,14 @@
 
         <div class="container">
 
+            <div class="slide-cam-audio">
+                <div class="slide-cam">
+                    <img src="../assets/camera.svg" alt="camera-icon" class="icon-slide">
+                </div>
+                <div class="slide-audio">
+                    <img src="../assets/microphone.svg" alt="microphone" class="icon-slide">
+                </div>
+            </div>
 
             <div id="tracker">
                 <div id="activities"></div>
@@ -78,6 +89,6 @@
             <button id="sendToEmail">Saada tulemused emailile</button>
         </div> -->
         <!-- <button id="resetBtn" class="bot-btn">Lähtesta</button> -->
-
+        </div>
     </body>
 </html>

@@ -35,7 +35,7 @@
                 // set cookie and redirect to tracker
                 setcookie('user_id', $result['id'], time() + (86400 * 30), "/");
                 setcookie('locale', $_POST['login-locale'], time() + (86400 * 30), "/");
-                Redirect($edulog_root . 'pages/tracker', false);
+                Redirect($edulog_root . 'pages/lesson_room', false);
             }
 
         } else {
@@ -56,6 +56,7 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         <script src="login.js"></script>
+        <script src="../navbar.js"></script>
     </head>
 
     <body>
@@ -89,7 +90,7 @@
             <?php if($invalid) {
                 echo '<span style="color: red; font-weight: bold; margin-top: 10px;" id="invalid-combination">Vale salasõna või emaili kombinatsioon</span>';
             } ?>
-            <a id="cta-register" href="../register" class="register-cta">Ei ole veel kasutaja? Registreeru siin</a>
+            <p class="not-user">Ei ole veel kasutaja? <a class="links" href="../register">Registreeru siin</a></p>
         </div>
     </body>
 </html>

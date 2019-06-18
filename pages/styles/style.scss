@@ -1,4 +1,4 @@
-@import "variables";
+@import "variables", "colors", "custom-bootstrap";
 
 * {
   margin: 0;
@@ -13,7 +13,7 @@ a {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: $opensans;
 }
 
 .container {
@@ -28,14 +28,15 @@ body {
 
 #activities,
 #tracker {
-  position: relative;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-weight: inherit;
+  font-weight: 600;
 }
 
 /* TRACKER */
@@ -47,7 +48,6 @@ h4 {
 
 #tracker {
   transition: transform ease 0.4s;
-  margin-bottom: 100px;
 }
 
 .login-details {
@@ -58,21 +58,23 @@ h4 {
 .list {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  width: 100%;
+  padding: 0px 20%;
+  justify-content: center;
 }
 
 .activity {
   cursor: pointer;
-  width: 100%;
+  width: 50%;
   background-size: cover;
   background-position: center;
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #ccc;
   padding: 0.5em;
   text-align: justify;
+  justify-content: center;
+  height: 60px;
+  position: relative;
 }
 
 .activity span {
@@ -94,7 +96,8 @@ h4 {
   margin-right: 0.5em;
   pointer-events: none;
   transition: width ease 0.4s;
-  position: relative;
+  position: absolute;
+  right: 0px;
 }
 
 .activity.open .bg {
@@ -111,18 +114,105 @@ h4 {
   transition: opacity ease 1s;
 }
 
+.slide-cam-audio {
+  position: absolute;
+  top: 7%;
+  left: 20px;
+  display: inline-flex;
+  .slide-cam {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .slide-audio {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .icon-slide {
+    height: 70%;
+  }
+}
+
+.container-1 {
+  margin: 100px auto;
+  width: 400px;
+  .settings-title {
+    text-align: center;
+  }
+  .vertical-center {
+    justify-content: center;
+  }
+  .rooms {
+    margin-top: 30px;
+  }
+}
+.delete-room {
+  color: red;
+  font-weight: 700;
+  @include transition;
+  &:hover {
+    color: rgb(122, 0, 0);
+    cursor: pointer;
+    @include transition;
+  }
+}
+
+.settings-layout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  list-style: none;
+  ul {
+    margin: 0;
+    padding: 0;
+    margin-left: 0px;
+  }
+  li {
+    padding: 0;
+    width: 350px;
+  }
+  a {
+    display: block;
+    color: black;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    background-color: $lightgray;
+    @include transition;
+    &:hover {
+      background-color: $mediumgray;
+      @include transition;
+    }
+  }
+}
+
 .bot-btn {
   bottom: 0;
   width: 100%;
   position: fixed;
   padding: 1em 0;
   box-sizing: border-box;
-  background: blue;
+  background: rgb(255, 145, 0);
   border: none;
   font-size: 21px;
   color: white;
   z-index: 4;
   transition: transform ease 0.4s;
+  cursor: pointer;
 }
 
 #startBtn.away {
@@ -139,12 +229,16 @@ h4 {
   transform: none;
 }
 
+.group {
+  margin-bottom: 60px;
+}
+
 .group-header {
   padding: 0.2em 0.5em;
   box-sizing: border-box;
   width: 100%;
   display: block;
-  background: #f7f7f7;
+  text-align: center;
 }
 
 .overlay {
@@ -275,7 +369,6 @@ input {
 }
 
 h3 {
-  margin-left: 2.5vw;
   margin-bottom: 0.5em;
 }
 
@@ -328,6 +421,23 @@ div.logreg {
   min-height: 50px;
   text-decoration: none;
   color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.not-user {
+  margin-top: 20px;
+}
+
+.links {
+  color: red;
+  text-decoration: none;
+  @include transition;
+  &:hover {
+    color: rgb(199, 0, 0);
+    @include transition;
+  }
 }
 
 .logreg section input,
@@ -337,17 +447,20 @@ div.logreg {
   padding: 0.5em;
   margin: 0;
   height: 40px;
-  max-width: 70%;
+  max-width: 100%;
   border-radius: 10px;
   background: rgb(230, 230, 230);
   font-size: 16px;
+  @include transition;
   &:hover {
     cursor: pointer;
+    @include transition;
   }
   &:focus {
     background: rgb(223, 223, 223);
     border: 1px solid rgb(223, 223, 223);
     cursor: default;
+    @include transition;
   }
 }
 
@@ -359,8 +472,8 @@ div.logreg {
 
 .f-btn {
   background: $darkergray;
-  width: 90px;
-  height: 40px;
+  width: 130px;
+  height: 30px;
   padding: 5px 15px;
   border: 1px solid $darkergray;
   border-radius: 10px;
@@ -368,10 +481,12 @@ div.logreg {
   color: white;
   text-transform: uppercase;
   font-size: 14px;
+  @include transition;
   &:hover {
     border: 1px solid $verydarkgray;
     background: $verydarkgray;
     cursor: pointer;
+    @include transition;
   }
 }
 
@@ -424,36 +539,134 @@ div.logreg {
   position: absolute;
 }
 
-.circle {
-  display: block;
-
-  width: 30px;
-
-  height: 30px;
-
-  border-radius: 100%;
-
-  background: black;
-
-  border: none;
-
-  cursor: pointer;
-
-  float: right;
-}
-
 .delete-button {
-  margin-right: 40px;
+  margin-right: 5px;
 
   cursor: pointer;
 }
 
-.delete-button::before {
-  content: "X";
+.log-object {
+  margin-right: 20px;
+}
+// navigation
 
-  color: #000;
+.wrapper-menu {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 330ms ease-out;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-  font-weight: 1000;
+.wrapper-menu.open {
+  transform: translateY(-50%) rotate(-45deg);
+}
 
-  font-size: 27px;
+.line-menu {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 100%;
+  height: 3px;
+}
+
+.line-menu.half {
+  width: 50%;
+}
+
+.line-menu.start {
+  transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+  transform-origin: right;
+}
+
+.open .line-menu.start {
+  transform: rotate(-90deg) translateX(3px);
+}
+
+.line-menu.end {
+  align-self: flex-end;
+  transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+  transform-origin: left;
+}
+
+.open .line-menu.end {
+  transform: rotate(-90deg) translateX(-3px);
+}
+
+nav {
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  z-index: 500;
+  top: 0;
+  left: 0;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+nav h3 {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 499;
+  pointer-events: none;
+  display: none;
+}
+
+aside ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  pointer-events: all;
+  padding-left: 0px;
+  text-align: center;
+}
+
+aside ul a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+
+aside ul li {
+  margin-bottom: 20px;
+}
+
+aside .menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: black;
+  opacity: 0;
+  transition: opacity ease 0.4s;
+}
+
+aside.open {
+  pointer-events: all;
+}
+
+aside.open .menu-overlay {
+  opacity: 0.9;
 }

@@ -79,11 +79,12 @@
         <title>Edulog register</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
-        <link rel="stylesheet" href="../style.css" type="text/css">
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 
         <script src="<?php echo $edulog_root . 'pages/tracker/js.cookie.js';?>"></script>
         <script src="register.js"></script>
+        <script src="../navbar.js"></script>
     </head>
 
     <body>
@@ -116,7 +117,7 @@
                     </section>
                 </div>
             </form>
-            <a id="cta-login" href="../login" class="register-cta">On juba kasutaja olemas? Logi sisse</a>
+            <p class="not-user">Oled juba kasutaja? <a class="links" href="../login">Logi sisse</a></p>
         </div>
     </body>
 </html>

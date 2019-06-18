@@ -1,0 +1,648 @@
+@import "variables", "colors", "custom-bootstrap";
+
+* {
+  margin: 0;
+}
+
+*:focus {
+  outline: 0 !important;
+}
+
+a {
+  cursor: pointer;
+}
+
+body {
+  font-family: $opensans;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  font-weight: 300;
+  box-sizing: border-box;
+  padding-top: 50px;
+  overflow-y: hidden;
+}
+
+#activities,
+#tracker {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+}
+
+/* TRACKER */
+#activities {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+#tracker {
+  transition: transform ease 0.4s;
+}
+
+.login-details {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 20%;
+  justify-content: center;
+}
+
+.activity {
+  cursor: pointer;
+  width: 50%;
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+  text-align: justify;
+  justify-content: center;
+  height: 60px;
+  position: relative;
+}
+
+.activity span {
+  pointer-events: none;
+}
+
+.activity:hover {
+  background: #ccc;
+}
+
+.activity .bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  margin-right: 0.5em;
+  pointer-events: none;
+  transition: width ease 0.4s;
+  position: absolute;
+  right: 0px;
+}
+
+.activity.open .bg {
+  width: 100px;
+}
+
+#tracker .activity.open .bg .timer {
+  opacity: 1;
+}
+
+#tracker .activity div span {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity ease 1s;
+}
+
+.slide-cam-audio {
+  position: absolute;
+  top: 7%;
+  left: 20px;
+  display: inline-flex;
+  .slide-cam {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .slide-audio {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .icon-slide {
+    height: 70%;
+  }
+}
+
+.settings-layout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  list-style: none;
+  ul {
+    margin: 0;
+    padding: 0;
+    margin-left: 0px;
+  }
+  li {
+    padding: 0;
+    width: 350px;
+  }
+  a {
+    display: block;
+    color: black;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    background-color: $lightgray;
+    @include transition;
+    &:hover {
+      background-color: $mediumgray;
+      @include transition;
+    }
+  }
+}
+
+.bot-btn {
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  padding: 1em 0;
+  box-sizing: border-box;
+  background: rgb(255, 145, 0);
+  border: none;
+  font-size: 21px;
+  color: white;
+  z-index: 4;
+  transition: transform ease 0.4s;
+  cursor: pointer;
+}
+
+#startBtn.away {
+  transform: translateY(70px);
+}
+
+#endBtn {
+  padding: 0.5em 0;
+  background: black;
+  transform: translateY(70px);
+}
+
+#endBtn.show {
+  transform: none;
+}
+
+.group {
+  margin-bottom: 60px;
+}
+
+.group-header {
+  padding: 0.2em 0.5em;
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity ease 0.4s;
+}
+
+.overlay.away {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#emailing {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 500px;
+  position: absolute;
+  background: white;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+#emailing.hide {
+  display: none;
+}
+
+#message.hide {
+  display: none;
+}
+
+#message {
+  background: white;
+}
+
+input {
+  padding: 0.5em 1em;
+  box-sizing: border-box;
+  border-radius: 0;
+  margin-top: 1em;
+}
+
+#emailing button {
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  border: none;
+  background: blue;
+  color: white;
+}
+
+#activities footer {
+  height: 100px;
+}
+
+/* RESULTS */
+
+/* REMOVE */
+.container.hide {
+  display: none;
+}
+
+#resultsList .bg span {
+  color: #011b5a;
+  font-size: 13px;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.horizontal_graph {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1em 0;
+  border-bottom: 1px solid #ccc;
+  background: #001b5a;
+}
+
+.horizontal_graph .bar {
+  margin-bottom: 0.5em;
+  height: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.minibar {
+  position: absolute;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-weight: bold;
+  height: 100%;
+  float: left;
+  min-width: 2px;
+}
+
+#total_duration {
+  text-align: right;
+  color: white;
+  /* background: #001b5a; */
+  background: black;
+  box-sizing: border-box;
+  padding: 0.5em;
+}
+
+#sendToEmail {
+  padding: 1em;
+  background: blue;
+  color: white;
+  border: none;
+  border-radius: 0;
+  position: absolute;
+  margin: 1em;
+}
+
+h3 {
+  margin-bottom: 0.5em;
+}
+
+.site-content {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 50px;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logreg {
+  max-width: 90vw;
+  width: 300px;
+  margin: 0 auto;
+  background: $lightgray;
+  box-sizing: border-box;
+  display: flex;
+  border-bottom: none;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+div.logreg {
+  max-width: none;
+  width: 100%;
+}
+
+.box-head {
+  background: $mediumgray;
+}
+
+.logreg section,
+.logreg div {
+  padding: 10px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.logreg div {
+  min-height: 50px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.not-user {
+  margin-top: 20px;
+}
+
+.links {
+  color: red;
+  text-decoration: none;
+  @include transition;
+  &:hover {
+    color: rgb(199, 0, 0);
+    @include transition;
+  }
+}
+
+.logreg section input,
+.logreg section select {
+  width: 200px;
+  border: 1px solid rgb(230, 230, 230);
+  padding: 0.5em;
+  margin: 0;
+  height: 40px;
+  max-width: 100%;
+  border-radius: 10px;
+  background: rgb(230, 230, 230);
+  font-size: 16px;
+  @include transition;
+  &:hover {
+    cursor: pointer;
+    @include transition;
+  }
+  &:focus {
+    background: rgb(223, 223, 223);
+    border: 1px solid rgb(223, 223, 223);
+    cursor: default;
+    @include transition;
+  }
+}
+
+.btn-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.f-btn {
+  background: $darkergray;
+  width: 130px;
+  height: 30px;
+  padding: 5px 15px;
+  border: 1px solid $darkergray;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  @include transition;
+  &:hover {
+    border: 1px solid $verydarkgray;
+    background: $verydarkgray;
+    cursor: pointer;
+    @include transition;
+  }
+}
+
+.register-cta {
+  padding-top: 20px;
+  color: black;
+}
+
+/* REMOVE */
+/* #emaiing, .overlay {
+    display: none;
+} */
+
+.logreg section input.invalid,
+.logreg section select.invalid {
+  border: 1px solid red !important;
+}
+
+.download-arrow::after {
+  content: "";
+
+  border-width: 8px 7px 0px 7px;
+
+  border-style: solid;
+
+  border-color: transparent;
+
+  border-top-color: white;
+
+  margin-left: 8px;
+
+  margin-top: 18px;
+
+  position: absolute;
+}
+
+.download-arrow::before {
+  content: "";
+
+  border-width: 0px 3px 8px 3px;
+
+  border-style: solid;
+
+  border-color: white;
+
+  margin-left: 12px;
+
+  margin-top: 10px;
+
+  position: absolute;
+}
+
+.delete-button {
+  margin-right: 5px;
+
+  cursor: pointer;
+}
+
+.log-object {
+  margin-right: 20px;
+}
+// navigation
+
+.wrapper-menu {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 330ms ease-out;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.wrapper-menu.open {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.line-menu {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 100%;
+  height: 3px;
+}
+
+.line-menu.half {
+  width: 50%;
+}
+
+.line-menu.start {
+  transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+  transform-origin: right;
+}
+
+.open .line-menu.start {
+  transform: rotate(-90deg) translateX(3px);
+}
+
+.line-menu.end {
+  align-self: flex-end;
+  transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+  transform-origin: left;
+}
+
+.open .line-menu.end {
+  transform: rotate(-90deg) translateX(-3px);
+}
+
+nav {
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  z-index: 500;
+  top: 0;
+  left: 0;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+nav h3 {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 499;
+  pointer-events: none;
+  display: none;
+}
+
+aside ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  pointer-events: all;
+  padding-left: 0px;
+  text-align: center;
+}
+
+aside ul a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+
+aside ul li {
+  margin-bottom: 20px;
+}
+
+aside .menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: black;
+  opacity: 0;
+  transition: opacity ease 0.4s;
+}
+
+aside.open {
+  pointer-events: all;
+}
+
+aside.open .menu-overlay {
+  opacity: 0.9;
+}
