@@ -2,10 +2,10 @@
 // make db connection
 $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
 // get user activities
-/*$db->exec('BEGIN');
+$db->exec('BEGIN');
 $statement = $db->prepare('SELECT * FROM activities WHERE user = :user');
 $statement->bindValue(':user', $_COOKIE['user_id']);
-$result = $statement->execute();     */
+$result = $statement->execute();     
 
 $userActivities = [];
 while ($row = $result->fetchArray(SQLITE3_ASSOC)) {

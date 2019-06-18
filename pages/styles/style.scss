@@ -145,30 +145,6 @@ h4 {
   }
 }
 
-.container-1 {
-  margin: 100px auto;
-  width: 400px;
-  .settings-title {
-    text-align: center;
-  }
-  .vertical-center {
-    justify-content: center;
-  }
-  .rooms {
-    margin-top: 30px;
-  }
-}
-.delete-room {
-  color: red;
-  font-weight: 700;
-  @include transition;
-  &:hover {
-    color: rgb(122, 0, 0);
-    cursor: pointer;
-    @include transition;
-  }
-}
-
 .settings-layout {
   position: absolute;
   top: 50%;
