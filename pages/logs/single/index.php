@@ -1,7 +1,7 @@
 <?php
 
     include('../../../config.php');
-
+    session_start();
 
     function Redirect($url, $permanent = false)
     {
@@ -9,7 +9,7 @@
         exit();
     }
 
-    if(isset($_COOKIE['user_id'])) {
+    if(isset($_SESSION['user-name'])) {
 
     } else {
 

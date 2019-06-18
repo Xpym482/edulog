@@ -1,6 +1,9 @@
 <?php
 
 include '../../config.php';
+//include_once('../navbar/navbar.php');
+
+session_start();
 
 function Redirect($url, $permanent = false)
 {
@@ -8,7 +11,7 @@ function Redirect($url, $permanent = false)
     exit();
 }
 
-if(isset($_COOKIE['user_id']))
+if(isset($_SESSION['user-name']))
 {
     // check if lesson already logging
     $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
@@ -41,7 +44,7 @@ $statement->bindValue(':user', $_COOKIE['user_id']);
 $lessons = $statement->execute();
 
 $tz = date_default_timezone_get();
-date_default_timezone_set($_COOKIE['time_offset']);       
+date_default_timezone_set($_COOKIE['time_offset']);
 
 $result = [];
 while ($row = $lessons->fetchArray()) {

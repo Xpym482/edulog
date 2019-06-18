@@ -1,7 +1,8 @@
 <?php
     include('./config.php');
     //redirect to tracker if logged in
-    if(isset($_COOKIE['user_id'])) {
+    header('Location: ' . $edulog_root . 'pages/login');
+    /*if(isset($_COOKIE['user_id'])) {
         Redirect($edulog_root .'pages/tracker', false);
     } else {
 
@@ -15,5 +16,5 @@
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
-    }
+    }*/
 ?>

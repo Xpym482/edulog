@@ -1,6 +1,6 @@
 <?php
     include('../../config.php');
-
+    session_start();
 
     function Redirect($url, $permanent = false)
     {
@@ -12,7 +12,7 @@
 
 
 
-    if(isset($_COOKIE['user_id']))
+    if(isset($_SESSION['id']))
     {
         // check if lesson already logging
         $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
@@ -53,7 +53,7 @@
     </head>
 
     <body>
-        <?php include "../../" . 'pages/navbar/navbar.php'; ?>
+        <?php include_once("../../" . 'pages/navbar/navbar.php'); ?>
 
         <div class="container">
 
