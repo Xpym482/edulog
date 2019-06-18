@@ -37,7 +37,6 @@
                    <div class="horizontal_graph" id="detailed_graph"></div>
 
                    <div id="resultsList">
-
                    </div>
                 </div>
             </div>
