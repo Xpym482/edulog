@@ -1,9 +1,23 @@
 <?php
 
     include('../../../config.php');
-    require_once('../../login/login.php');
+    session_start();
+
+    function Redirect($url, $permanent = false)
+    {
+        header('Location: ' . $url, true, $permanent ? 301 : 302);
+        exit();
+    }
 
     if(isset($_SESSION['user-name'])) {
+
+    } else {
+
+        // if no cookie, return to login
+        Redirect($edulog_root . 'pages/login', false);
+    }
+
+
 
 ?>
 <!DOCTYPE html>

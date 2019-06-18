@@ -1,6 +1,7 @@
 <?php
     include('../../config.php');
-    require_once('../login/login.php');
+  //  session_start();
+
 ?>
 
 
@@ -20,10 +21,7 @@
         <li><a href="<?php echo $edulog_root . 'pages/tracker';?>">Tundide logimine</a></li>
         <li><a href="<?php echo $edulog_root . 'pages/logs';?>">Tundide logid</a></li>
         <li><a href="<?php echo $edulog_root . 'pages/settings';?>">Seadistused</a></li>
-        <li><a id="logout" href="
-          <?php
-        echo $edulog_root . 'pages/login/logout.php';
-        ?>">Logi välja (<?php echo $_SESSION["user-name"] ?>)</a></li>
+        <li><a id="logout" href="<?php echo $edulog_root . 'pages/login/logout.php';?>">Logi välja (<?php echo $_SESSION['user-name']; ?>)</a></li>
 
        <?php if(strstr($_SERVER["SCRIPT_NAME"], 'logs')) : ?>
         <li><a onclick="fetchCsv('Self')">Lae alla kõik enda logid</a></li>

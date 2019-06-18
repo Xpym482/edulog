@@ -1,10 +1,12 @@
 <?php
 
 include '../../config.php';
-require_once('../login/login.php');
+//include_once('../navbar/navbar.php');
+
+session_start();
 
 
-if(isset($_COOKIE['user_id']))
+if(isset($_SESSION['user-name']))
 {
     // check if lesson already logging
     $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
