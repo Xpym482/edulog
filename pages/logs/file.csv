@@ -1,5 +1,4 @@
-User;Lesson;"Lesson Start";"Lesson End";Activity;"Activity Start";"Activity End";Duration
-artursho@tlu.ee;213;"2019-06-19 11:09:04";"2019-06-19 11:09:11";discussion;11:09:05;11:09:10;00:00:05
-artursho@tlu.ee;213;"2019-06-19 11:09:04";"2019-06-19 11:09:11";organizing;11:09:05;11:09:10;00:00:05
-artursho@tlu.ee;213;"2019-06-19 11:09:04";"2019-06-19 11:09:11";teaching;11:09:05;11:09:09;00:00:04
-artursho@tlu.ee;213;"2019-06-19 11:09:04";"2019-06-19 11:09:11";feedback;11:09:06;11:09:09;00:00:03
+User;Lesson;"Lesson Start";"Lesson End";Activity;"Activity Start";"Activity End";Duration;Thread
+artursho@tlu.ee;278;"2019-06-19 17:00:28";"2019-06-19 17:00:35";organizing;17:00:28;17:00:34;00:00:06;ANdmebaasid
+artursho@tlu.ee;278;"2019-06-19 17:00:28";"2019-06-19 17:00:35";teaching;17:00:30;17:00:34;00:00:03;ANdmebaasid
+artursho@tlu.ee;278;"2019-06-19 17:00:28";"2019-06-19 17:00:35";feedback;17:00:30;17:00:33;00:00:02;ANdmebaasid
