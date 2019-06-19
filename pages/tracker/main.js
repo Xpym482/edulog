@@ -6,6 +6,7 @@ var lifeTime = null;
 var hasInfo = false;
 var sentMail = false;
 var logUuid = null;
+let goingactivities = [];
 
 $(document).ready(function() {
   function voidAjaxRequest(data, path) {
@@ -19,7 +20,7 @@ $(document).ready(function() {
 
   function dateformatter(phpdate) {
     var d = new Date(phpdate.replace(/\+/g, " ").replace(/-/g, "/"));
-    d.setHours(d.getHours() + 3);
+    d.setHours(d.getHours() + 0);
     return d;
   }
 
@@ -187,11 +188,11 @@ $(document).ready(function() {
             "_" +
             activity_key +
             `">
-                        
+
                         <span>` +
             structure[locale].groups[key]["activities"][activity_key] +
             `</span> <br>
-            
+
             <div class="bg"><span class="timer">00:00:00</span></div>
                     </a>
                     `
@@ -240,7 +241,7 @@ $(document).ready(function() {
         );
       }, 1000)
     };
-
+    goingactivities.push(key);
     // update entry that timer is logging
     trackingStatuses[key] = true;
     console.log(trackingStatuses);
@@ -279,6 +280,7 @@ $(document).ready(function() {
 
     // make activity trackable
     trackingStatuses[key] = false;
+    goingactivities = [];
   }
 
   // assign eventListeners to activities
@@ -301,7 +303,6 @@ $(document).ready(function() {
 
     // start lesson in DB
     voidAjaxRequest(data, "start_lesson.php");
-
     $(this).addClass("away");
     $("#endBtn").addClass("show");
     $(".overlay").addClass("away");
@@ -320,12 +321,17 @@ $(document).ready(function() {
 
   // end logger
   $("#endBtn").click(function() {
+    if(goingactivities.length != 0){
+      //console.log(goingactivities);
+      alert("Stop activities first!");
+    }
+    else{
     $(this).addClass("away");
     $(".container").addClass("hide");
     // stop not user invalidated timers to setup results view
-    Object.keys(stopwatches).forEach(function(key) {
+    /*Object.keys(stopwatches).forEach(function(key) {
       deleteStopwatch(key);
-    });
+    });*/
 
     var data = {
       user_id: Cookies.get("user_id"),
@@ -348,6 +354,7 @@ $(document).ready(function() {
         window.location.href = "../logs/single/index.php?log=" + lessonid;
       }
     });
+    }
   });
 
     $("#resetBtn").click(function() {
@@ -398,7 +405,7 @@ $(document).ready(function() {
     );
   }
 
-  
+
 });
 
 function sendData(){

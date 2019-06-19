@@ -85,7 +85,7 @@ $(document).ready(function() {
 
     function dateformatter(phpdate) {
         var d = new Date(phpdate.replace(/\+/g, " ").replace(/-/g, "/"))
-        d.setHours(d.getHours() - 2);
+        d.setHours(d.getHours());
         return d;
     }
 
@@ -114,7 +114,7 @@ $(document).ready(function() {
             success: function(response) {
                 lesson = response[0]
                 logs = response[1]
-
+                console.log(logs);
                 // edit DOM
                 setupResultsView();
             }
@@ -196,7 +196,7 @@ $(document).ready(function() {
                                background: "url('http://saargraafika.ee/edulog/gradients/" + backgrounds[group][slug] + "')",
                                width: Math.floor((part / total) * 100) + 'vw',
                                marginLeft: Math.floor((((dateformatter(log['started_at']) - dateformatter(lesson['started_at'])) / 1000) / total) * 100) + 'vw'
-                               
+
                            }
                        }));
                     // add log to list
@@ -210,12 +210,12 @@ $(document).ready(function() {
                         </a>
                         `
                     )
-                    console.log(log['started_at']);
+                    /*console.log(log['started_at']);
                     console.log(log['ended_at']);
                     console.log(lesson['started_at']);
-                    console.log(lesson['ended_at']);
+                    console.log(lesson['ended_at']);*/
                 })
-                
+
 
             })
         })

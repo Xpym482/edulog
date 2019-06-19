@@ -8,10 +8,6 @@
         exit();
     }
 
-
-
-
-
     if(isset($_SESSION['id']))
     {
         // check if lesson already logging
@@ -21,7 +17,6 @@
         $result = $db->querySingle($query, true);
 
         if(!empty($result)) {
-
             // if active lesson already exists
             setcookie('lesson_start', $result['started_at'], time() + (86400 * 30), "/");
             setcookie('lesson_id', $result['id'], time() + (86400 * 30), "/");
@@ -56,7 +51,7 @@
         <?php include_once("../../" . 'pages/navbar/navbar.php'); ?>
 
         <div class="container">
-
+          <?php //var_dump($result['started_at'], time() + (86400 * 30)); ?>
             <div class="slide-cam-audio">
                 <div class="slide-cam">
                     <img src="../assets/camera.svg" alt="camera-icon" class="icon-slide">
