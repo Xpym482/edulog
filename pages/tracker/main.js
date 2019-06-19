@@ -351,6 +351,7 @@ $(document).ready(function() {
         var lessonid = Cookies.get("lesson_id");
         Cookies.remove("lesson_id");
         Cookies.remove("lesson_start");
+        Cookies.remove("tunditeema");
         window.location.href = "../logs/single/index.php?log=" + lessonid;
       }
     });

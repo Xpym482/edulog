@@ -23,7 +23,6 @@
         $statement->bindValue(3, $_POST['lesson_id']);
         $statement->execute();
         $db->exec('COMMIT');
-      //  $_POST = array();
     }
 
 

@@ -1,2 +1,4 @@
 *.csv
 database.sqlite
+database.sqlite
+pages/logs/single/file.csv
