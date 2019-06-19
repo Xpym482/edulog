@@ -140,9 +140,7 @@ $(document).ready(function() {
     }
 
     function makeDetailedGraph() {
-
-
-
+        
         // total time
         var total = (dateformatter(lesson['ended_at']) - dateformatter(lesson['started_at'])) / 1000
         console.log(total);
@@ -154,7 +152,7 @@ $(document).ready(function() {
             r[a.type].push(a);
             return r;
         }, Object.create(null));
-
+        
         // group by slug
         var grouped_by_slug = {};
 
@@ -228,7 +226,5 @@ $(document).ready(function() {
     }
 
     draw();
-
-
 
 })
