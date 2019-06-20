@@ -1,11 +1,11 @@
 <?php
 
     include('../../config.php');
-
-        if(isset($_COOKIE['user_id'])) {
+    session_start();
+        if(isset($_SESSION['id'])) {
 
             // make db connection
-            
+
             $db = new Sqlite3("../../" . 'database.sqlite',  SQLITE3_OPEN_READWRITE);
             $statement = "";
 
@@ -28,7 +28,7 @@
                 //All your lessons
                 $statement = $db->prepare("{$sqlBase}
                 WHERE u.id = :user_id AND u.id = l.user AND l.id = logs.lesson AND logs.activity = a.id");
-                $statement->bindValue(':user_id',$_COOKIE['user_id']);
+                $statement->bindValue(':user_id',$_SESSION['id']);
             }
 
             $activities_raw = $statement->execute();
@@ -38,7 +38,7 @@
             fputcsv($fp, array("User","Lesson","Lesson Start","Lesson End","Activity","Activity Start","Activity End", "Duration", "Thread"), $separator);
 
             $tz = date_default_timezone_get();
-            date_default_timezone_set($_COOKIE['time_offset']);         
+            date_default_timezone_set($_COOKIE['time_offset']);
 
             while ( $row = $activities_raw->fetchArray(SQLITE3_ASSOC) ) {
                 $timeStamp = strtotime($row["lesson start"].' GMT+03');
@@ -58,10 +58,10 @@
             // free up memory
             $activities_raw->finalize();
 
-            $file = 'file.csv';  
+            $file = 'file.csv';
 
-           
+
             echo json_encode("done");
         }
-    
+
 ?>
