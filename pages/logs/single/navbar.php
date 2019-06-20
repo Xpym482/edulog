@@ -18,11 +18,12 @@
     <ul>
         <li><a href="<?php echo $edulog_root . 'pages/tracker';?>">Tundide logimine</a></li>
         <li><a href="<?php echo $edulog_root . 'pages/logs';?>">Tundide logid</a></li>
+        <li><a href="<?php echo $edulog_root . 'pages/settings';?>">Seadistused</a></li>
         <li><a id="logout" href="<?php echo $edulog_root . 'pages/login/logout.php';?>">Logi välja (<?php echo $_SESSION['user-name']; ?>)</a></li>
 
        <?php if(strstr($_SERVER["SCRIPT_NAME"], 'logs')) : ?>
         <li><a onclick="fetchCsv('Self')">Lae alla kõik enda logid</a></li>
-        <?php if ($_COOKIE['user_id'] == '3'):?>
+        <?php if ($_SESSION['id'] == '3'):?>
         <li><a onclick="fetchCsv('All')">ADMIN: Lae alla kõigi logid</a></li>
         <?php endif;?>
         <?php endif;?>
@@ -37,7 +38,7 @@
         <li><a id="logout" href="<?php echo $edulog_root . 'pages/login';?>">Log out</a></li>
         <?php if(strstr($_SERVER["SCRIPT_NAME"], 'logs')) : ?>
         <li><a onclick="fetchCsv('Self')">Download all of your logs</a></li>
-        <?php if ($_COOKIE['user_id'] == '3'):?>
+        <?php if ($_SESSION['id'] == '3'):?>
         <li><a onclick="fetchCsv('All')">ADMIN: Download everyone's logs</a></li>
         <?php endif;?>
         <?php endif;?>

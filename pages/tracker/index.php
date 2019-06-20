@@ -2,11 +2,11 @@
     include('../../config.php');
     session_start();
 
-    /*function Redirect($url, $permanent = false)
+    function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
-    }*/
+    }
 
     if(isset($_SESSION['id']))
     {
@@ -14,7 +14,7 @@
         // check if lesson already logging
         $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
 
-        $query = "SELECT * FROM lessons WHERE ended_at IS NULL AND user='". $_COOKIE['user_id'] ."'";
+        $query = "SELECT * FROM lessons WHERE ended_at IS NULL AND user='". $_SESSION['id'] ."'";
         $result = $db->querySingle($query, true);
 
         if(!empty($result)) {
