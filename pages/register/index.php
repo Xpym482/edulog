@@ -84,15 +84,13 @@
 
         <script src="<?php echo $edulog_root . 'pages/tracker/js.cookie.js';?>"></script>
         <script src="register.js"></script>
-        <script src="../navbar.js"></script>
     </head>
 
     <body>
         <div class="site-content">
-            <?php include "../../" . 'pages/navbar/navbar.php'; ?>
             <form id="register-form" action="<?=$_SERVER['PHP_SELF'];?>" method="post" class="logreg">
                 <section class="box-head">
-                    <h1 id="title">Registreerumine</h1>
+                    <h1 id="title">Register</h1>
                 </section>
                 <div class="login-details">
                     <section>
@@ -105,10 +103,10 @@
                         <input type="email" id="register-email" name="register-email" placeholder="E-mail">
                     </section>
                     <section>
-                        <input type="password" id="register-password" name="register-password" placeholder="Parool">
+                        <input type="password" id="register-password" name="register-password" placeholder="Password">
                     </section>
                     <section>
-                        <input type="password" id="register-password-again" name="register-password-again" placeholder="Korda parooli">
+                        <input type="password" id="register-password-again" name="register-password-again" placeholder="Repeat password">
                     </section>
                     <section>
                         <div class="btn-wrap">
@@ -117,7 +115,7 @@
                     </section>
                 </div>
             </form>
-            <p class="not-user">Oled juba kasutaja? <a class="links" href="../login">Logi sisse</a></p>
+            <p class="not-user">Already an user? <a class="links" href="../login">Login</a></p>
         </div>
     </body>
 </html>
