@@ -2,11 +2,11 @@
     include('../../config.php');
     session_start();
 
-    function Redirect($url, $permanent = false)
+    /*function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
-    }
+    }*/
 
     if(isset($_SESSION['id']))
     {
@@ -92,3 +92,12 @@
         </div>
     </body>
 </html>
+
+<?php
+} else {
+    Redirect($edulog_root . 'pages/login', false);
+}
+
+
+
+ ?>

@@ -1,4 +1,4 @@
-      <?php
+<?php
     include('../../config.php');
   //  session_start();
 
@@ -37,7 +37,9 @@
     <ul>
         <li><a href="<?php echo $edulog_root . 'pages/tracker';?>">Tracker</a></li>
         <li><a href="<?php echo $edulog_root . 'pages/logs';?>">Logs</a></li>
-        <li><a id="logout" href="<?php echo $edulog_root . 'pages/login';?>">Log out</a></li>
+        <li><a id="logout" href="<?php
+        session_destroy();
+        echo $edulog_root . 'pages/login';?>">Log out</a></li>
         <?php if(strstr($_SERVER["SCRIPT_NAME"], 'logs')) : ?>
         <li><a onclick="fetchCsv('Self')">Download all of your logs</a></li>
         <?php if ($_COOKIE['user_id'] == '3'):?>
