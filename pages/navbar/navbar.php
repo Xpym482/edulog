@@ -38,8 +38,8 @@
         <li><a href="<?php echo $edulog_root . 'pages/tracker';?>">Tracker</a></li>
         <li><a href="<?php echo $edulog_root . 'pages/logs';?>">Logs</a></li>
         <li><a href="<?php echo $edulog_root . 'pages/settings';?>">Settings</a></li>
-        <li><a href="<?php echo $edulog_root . 'pages/lesson_room';?>">Add room</a></li>
-        <li><a id="logout" href="<?php echo $edulog_root . 'pages/login/logout.php';?>">Log out</a></li>
+        <li><a href="<?php echo $edulog_root . 'pages/lesson_room';?>">Add room</a></li> 
+        <li><a id="logout" href="<?php echo $edulog_root . 'pages/login/logout.php';?>">Log out (<?php echo $_SESSION['user-name']; ?>)</a></li>
         <?php if(strstr($_SERVER["SCRIPT_NAME"], 'logs')) : ?>
         <li><a onclick="fetchCsv('Self')">Download all of your logs</a></li>
         <?php if ($_SESSION['id'] == '3'):?>
