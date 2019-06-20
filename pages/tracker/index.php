@@ -92,12 +92,3 @@
         </div>
     </body>
 </html>
-
-<?php
-} else {
-    Redirect($edulog_root . 'pages/login', false);
-}
-
-
-
- ?>
