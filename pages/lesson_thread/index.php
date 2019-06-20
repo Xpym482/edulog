@@ -12,15 +12,15 @@
       if(isset($_POST['addroom'])){
         if(isset($_POST['Teema']) && !empty($_POST['Teema']))
         {
-          $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
-          setcookie('tunditeema', $_POST['Teema'], time() + (86400 * 30), "/");
-          $db->exec('BEGIN');
-          $statement = $db->prepare('INSERT INTO lessons (user, thread) VALUES (:user, :teema)');
-          $statement->bindValue(':user', $_SESSION['id']);
-          $statement->bindValue(':teema', $_POST['Teema']);
-          $statement->execute();
-          $db->exec('COMMIT');
-          Redirect($edulog_root . 'pages/tracker', false);
+            $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
+            setcookie('tunditeema', $_POST['Teema'], time() + (86400 * 30), "/");
+            $db->exec('BEGIN');
+            $statement = $db->prepare('INSERT INTO lessons (user, thread) VALUES (:user, :teema)');
+            $statement->bindValue(':user', $_SESSION['id']);
+            $statement->bindValue(':teema', $_POST['Teema']);
+            $statement->execute();
+            $db->exec('COMMIT');
+            Redirect($edulog_root . 'pages/tracker', false);
         }
         else{
           $threadError = "Teema ei saa olla tühi!";
@@ -52,7 +52,7 @@
 
             <form id="login-form" action="<?=$_SERVER['PHP_SELF'];?>" method="post" class="logreg">
                 <section class="box-head">
-                    <h1 id="title">Tundi teema</h1>
+                    <h1 id="title">Tunni teema</h1>
                 </section>
                 <div class="login-details">
                     <section>

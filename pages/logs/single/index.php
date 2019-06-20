@@ -40,7 +40,7 @@
             <?php include 'navbar.php'; ?>
             <div class="logreg">
                 <section class="box-head">
-                    <h1 id="title">Tundide logi</h1>
+                    <h1 id="title">Tundide logid</h1>
                 </section>
 
             </div><!-- end of container -->
