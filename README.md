@@ -11,7 +11,9 @@ mida õpilased õppetunni jooksul tegid ja mida õpetaja tegi(nt. õpilase poolt
 Tulevikus seda projekti tuleb  haridusse ministeeriumisse (eKool).
 
 # Tehnoloogiad
-Projekti kirjutamiseks kasutasime arvutit. Programmid: Visual Studio Code(1.35.1.), Atom(1.38.2.). 
+Projekti kirjutamiseks kasutasime arvutit. Programmid: Visual Studio Code(1.35.1.), Atom(1.38.2.).
+Kasutasime WEB-server XAMPP(7.1.30 / PHP 7.1.30) 
+Kasutasime ka isiklikku serverit WampServer
 
 # Programmeerimiskeeled
 Projekt sisaldab järgmised keeled: PHP, HTML, JavaScript, CSS,SCSS, database.sqlite.
@@ -22,7 +24,7 @@ Artur Šovkunenko
 Jevgeni Prostsenko
 Dominik Skljarov.
 
-#Litsents
+# Litsents
 Litsents(MIT) : https://github.com/Xpym482/edulog/blob/master/LICENSE
 
 # URL
