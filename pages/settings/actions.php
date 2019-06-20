@@ -1,6 +1,5 @@
 <?php
     include('../../config.php');
-
 ?>
 
   <head>
@@ -86,7 +85,6 @@
       <div class="container-1">
         <h1 class="settings-title">Lisa uus õpetaja tegevus</h1>
 
-          
         <div>
 
         <div class="input-group">
@@ -113,7 +111,6 @@
         </div>
 
         </div>
-      
       </div> <!-- end of container-1 -->
 
       <hr>
@@ -162,7 +159,6 @@
       <div class="container-1">
         <h1 class="settings-title">Lisa uus õpilase tegevus</h1>
 
-          
         <div>
 
         <div class="input-group">
@@ -187,7 +183,6 @@
           </div>
 
         </div>
-      
       </div> <!-- end of container-1 -->
 
 

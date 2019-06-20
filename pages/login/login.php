@@ -22,7 +22,7 @@ function signin($email, $password){
       $_SESSION["user-name"] = $email;
       $_SESSION["id"] =  $result['id'];
       //header("http://localhost/edulog/pages/tracker/index.php");
-      header("Location: http://localhost/edulog/pages/tracker");
+      header("Location: http://localhost/edulog/pages/lesson_thread");
       //Redirect($edulog_root .'pages/tracker/index.php', false);
 
   }

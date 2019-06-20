@@ -94,7 +94,7 @@ mail($to, $subject, $message, $headers);*/
 
             <div>
                 <a
-                    href="single/index.php?log=<?php echo $log['id']; ?>" class="log-object"><label><?php echo $log['started_at']; ?></label></a>
+                    href="../logs/single/index.php?log=<?php echo $log['id']; ?>" class="log-object"><label><?php echo $log['started_at']; echo " "; echo $log['thread'] ?><br></label></a>
                 <span>
                     <img class="delete-button" src="../assets/remove.svg" onclick="deleteLog(<?php echo $log['id']; ?>)" >
                     <img class="circle" src="../assets/download.svg" onclick="fetchCsv(<?php echo $log['id']; ?>)">

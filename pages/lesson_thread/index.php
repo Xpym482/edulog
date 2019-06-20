@@ -1,29 +1,35 @@
 <?php
     include('../../config.php');
+    session_start();
+    $threadError = "";
 
     function Redirect($url, $permanent = false)
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
     }
-
-
-
-
-    if(isset($_COOKIE['user_id']))
-    {
-        // check if lesson already logging
-        $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
-
-        $query = "SELECT * FROM lessons WHERE ended_at IS NULL AND user='". $_COOKIE['user_id'] ."'";
-        $result = $db->querySingle($query, true);
-
-
-    } else {
-        Redirect($edulog_root . 'pages/tracker', false);
-    }
-
-
+    if(isset($_SESSION['id'])){
+      if(isset($_POST['addroom'])){
+        if(isset($_POST['Teema']) && !empty($_POST['Teema']))
+        {
+          $db = new Sqlite3("../../" . 'database.sqlite', SQLITE3_OPEN_READWRITE);
+          setcookie('tunditeema', $_POST['Teema'], time() + (86400 * 30), "/");
+          $db->exec('BEGIN');
+          $statement = $db->prepare('INSERT INTO lessons (user, thread) VALUES (:user, :teema)');
+          $statement->bindValue(':user', $_SESSION['id']);
+          $statement->bindValue(':teema', $_POST['Teema']);
+          $statement->execute();
+          $db->exec('COMMIT');
+          Redirect($edulog_root . 'pages/tracker', false);
+        }
+        else{
+          $threadError = "Teema ei saa olla tühi!";
+          }
+        }
+      }
+      else {
+        header('Location:' . $edulog_root .'pages/login');
+      }
 ?>
 
 <!DOCTYPE html>
@@ -52,8 +58,9 @@
                     <section>
                         <input id="Teema" name="Teema" placeholder="Kirjutage teema">
                         <div class="btn-wrap">
-                            <button id="login-btn" class="f-btn" type="submit">Edasi</button>
+                            <button id="login-btn" class="f-btn" type="submit" name="addroom">Edasi</button>
                         </div>
+                        <?php echo $threadError; ?>
                     </section>
                 </div>
             </form>

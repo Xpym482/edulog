@@ -9,7 +9,7 @@
             $db = new Sqlite3("../../" . 'database.sqlite',  SQLITE3_OPEN_READWRITE);
             $statement = "";
 
-            $sqlBase = 'SELECT u.email, l.id, l.started_at as "lesson start", l.ended_at as "lesson end",a.slug, logs.started_at as "log start", logs.ended_at as "log end", time(CAST ((julianday(logs.ended_at)-julianday(logs.started_at))* 24 * 60 * 60 AS Integer), "unixepoch")
+            $sqlBase = 'SELECT u.email, l.id, l.started_at as "lesson start", l.ended_at as "lesson end", a.slug, logs.started_at as "log start", logs.ended_at as "log end", time(CAST ((julianday(logs.ended_at)-julianday(logs.started_at))* 24 * 60 * 60 AS Integer), "unixepoch"), logs.thread
             FROM users AS u, lessons AS l, activities AS a, logs';
 
             $justLogTime = 'SELECT logs.started_at
@@ -35,7 +35,7 @@
 
             $fp = fopen('file.csv', 'w');
             $separator = $_COOKIE['locale'] == 'et' ? ';':',';
-            fputcsv($fp, array("User","Lesson","Lesson Start","Lesson End","Activity","Activity Start","Activity End", "Duration"), $separator);
+            fputcsv($fp, array("User","Lesson","Lesson Start","Lesson End","Activity","Activity Start","Activity End", "Duration", "Thread"), $separator);
 
             $tz = date_default_timezone_get();
             date_default_timezone_set($_COOKIE['time_offset']);         

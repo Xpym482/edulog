@@ -6,6 +6,7 @@ var lifeTime = null;
 var hasInfo = false;
 var sentMail = false;
 var logUuid = null;
+let goingactivities = [];
 
 $(document).ready(function() {
   function voidAjaxRequest(data, path) {
@@ -19,7 +20,7 @@ $(document).ready(function() {
 
   function dateformatter(phpdate) {
     var d = new Date(phpdate.replace(/\+/g, " ").replace(/-/g, "/"));
-    d.setHours(d.getHours() + 3);
+    d.setHours(d.getHours() + 0);
     return d;
   }
 
@@ -187,11 +188,11 @@ $(document).ready(function() {
             "_" +
             activity_key +
             `">
-                        
+
                         <span>` +
             structure[locale].groups[key]["activities"][activity_key] +
             `</span> <br>
-            
+
             <div class="bg"><span class="timer">00:00:00</span></div>
                     </a>
                     `
@@ -212,8 +213,19 @@ $(document).ready(function() {
   // to be populated by activity : {start<Date>, end<Date>, timer<function>}
   var stopwatches = {};
 
+  function removeA(arr) {
+    var what, a = arguments, L = a.length, ax;
+    while (L > 1 && arr.length) {
+        what = a[--L];
+        while ((ax= arr.indexOf(what)) !== -1) {
+            arr.splice(ax, 1);
+        }
+    }
+    return arr;
+  }
+
   function createStopwatch(key, started_at = new Date(), request = false) {
-    console.log(key);
+  //  console.log(key);
     if (request) {
       // prepare ajax request to db
       var tmp = key.split("_");
@@ -240,10 +252,10 @@ $(document).ready(function() {
         );
       }, 1000)
     };
-
+    goingactivities.push(key);
     // update entry that timer is logging
     trackingStatuses[key] = true;
-    console.log(trackingStatuses);
+    //console.log(trackingStatuses);
   }
 
   // will be populated with log records
@@ -279,6 +291,8 @@ $(document).ready(function() {
 
     // make activity trackable
     trackingStatuses[key] = false;
+    removeA(goingactivities, key);
+    //goingactivities = [];
   }
 
   // assign eventListeners to activities
@@ -301,7 +315,6 @@ $(document).ready(function() {
 
     // start lesson in DB
     voidAjaxRequest(data, "start_lesson.php");
-
     $(this).addClass("away");
     $("#endBtn").addClass("show");
     $(".overlay").addClass("away");
@@ -320,12 +333,17 @@ $(document).ready(function() {
 
   // end logger
   $("#endBtn").click(function() {
+    console.log(goingactivities);
+    if(goingactivities.length != 0){
+      alert("Stop activities first!");
+    }
+    else{
     $(this).addClass("away");
     $(".container").addClass("hide");
     // stop not user invalidated timers to setup results view
-    Object.keys(stopwatches).forEach(function(key) {
+    /*Object.keys(stopwatches).forEach(function(key) {
       deleteStopwatch(key);
-    });
+    });*/
 
     var data = {
       user_id: Cookies.get("user_id"),
@@ -345,9 +363,11 @@ $(document).ready(function() {
         var lessonid = Cookies.get("lesson_id");
         Cookies.remove("lesson_id");
         Cookies.remove("lesson_start");
+        Cookies.remove("tunditeema");
         window.location.href = "../logs/single/index.php?log=" + lessonid;
       }
     });
+    }
   });
 
     $("#resetBtn").click(function() {
@@ -398,7 +418,7 @@ $(document).ready(function() {
     );
   }
 
-  
+
 });
 
 function sendData(){

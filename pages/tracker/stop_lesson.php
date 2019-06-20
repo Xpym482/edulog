@@ -23,6 +23,13 @@
         $statement->bindValue(3, $_POST['lesson_id']);
         $statement->execute();
         $db->exec('COMMIT');
+
+        $db->exec('BEGIN');
+        $statement = $db->prepare("UPDATE logs set thread = ? WHERE thread is NULL AND lesson = ?");
+        $statement->bindValue(1, $_COOKIE['tunditeema']);
+        $statement->bindValue(2, $_POST['lesson_id']);
+        $statement->execute();
+        $db->exec('COMMIT');
     }
 
 
