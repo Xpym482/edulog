@@ -1,5 +1,6 @@
 <?php
     include('../../config.php');
+    session_start();
 
     function Redirect($url, $permanent = false)
     {
@@ -12,7 +13,7 @@
     }
 
 
-    if(isset($_COOKIE['user_id']))
+    if(isset($_SESSION['id']))
     {
 
         // check if lesson already logging
@@ -84,14 +85,10 @@
                   <section>
                       <h1 id="title">Sinu ruumid:</h1>
                       <ul>
-                        <?php
-                        $ourarray = getLessons();
-                        //var_dump($ourarray);
-                        foreach ($ourarray as $key) {
-                          ?><li><?php echo $key;?></li>
-                          <?php
-                        }
-                         ?>
+                        <li>ROOM 1</li>
+                        <li>ROOM 2</li>
+                        <li>ROOM 3</li>
+                        <li>ROOM 4</li>
                       </ul>
                       <!--<input id="Ruum" name="Ruum" placeholder="Kirjutage ruum">-->
                       <br>
