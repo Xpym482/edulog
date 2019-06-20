@@ -46,10 +46,6 @@
       <ul class="settings-layout">
         <li><a href="<?php echo $edulog_root . 'pages/settings/room.php';?>">Klassid</a></li>
         <li><a href="<?php echo $edulog_root . 'pages/settings/actions';?>">Tegevused</a></li>
-        <li><a href="#">Suvaline #1</a></li>
-        <li><a href="#">Suvaline #2</a></li>
-        <li><a href="#">Suvaline #3</a></li>
-        <li><a href="#">Suvaline #4</a></li>
       </ul>
     </div>
   </body>
