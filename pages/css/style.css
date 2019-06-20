@@ -238,7 +238,8 @@ h4 {
 
 @media (min-width: 481px) {
   .activity .bg {
-    height: 50px;
+    height: 50px !important;
+    bottom: 5px !important;
   }
 }
 
@@ -320,11 +321,12 @@ h4 {
           transform: translate(-50%, -50%);
   text-decoration: none;
   list-style: none;
+  padding-left: 0px;
 }
 
 .settings-layout ul {
   margin: 0;
-  padding: 0;
+  padding: 0 !important;
   margin-left: 0px;
 }
 
@@ -485,10 +487,8 @@ input {
   font-size: 13px;
   font-weight: bold;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  bottom: 0px;
+  right: 0px;
 }
 
 .horizontal_graph {
