@@ -7,6 +7,18 @@
 Arendada veebirakendus, mis aitab igale õpetajale saada õppetundi statistikat, 
 mida õpilased õppetunni jooksul tegid ja mida õpetaja tegi(nt. õpilase poolt küsimused, kui kaua nad kestsid või õpetaja annab testi õppetundi jooksul jne. ).
 
+1) Kuidas saaks nuppude nimesid õpetaja ise määrata
+2) Kas oleks võimalik lisada audio ja foto tegemine (ajajoonele)
+3) Lubada logide parandamine (hilisem andmete muutmine)
+4) Võimaldada logipilte võrrelda (eri päevade omi, näiteks)
+5) Parandada disaini
+6) Saanud andmed peaks olema loetavad ja atraktiivsed.
+7) Klassi lisamine. Õpetaja saab lisada uued klassid ja valida vanad.
+8) Tegevuste gruppimeerimine. Kui vajutada mingi tegevust, siis all tulevad osategevust, mis võib ka valida ja see lõpeb vana tegevust.
+9) Tegevuste lisamine trackeris lehel.
+10) Graafide kujutamine. Igal 
+
+
 # Tulevik
 Tulevikus seda projekti tuleb  haridusse ministeeriumisse (eKool).
 
