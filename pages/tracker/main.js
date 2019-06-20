@@ -213,8 +213,19 @@ $(document).ready(function() {
   // to be populated by activity : {start<Date>, end<Date>, timer<function>}
   var stopwatches = {};
 
+  function removeA(arr) {
+    var what, a = arguments, L = a.length, ax;
+    while (L > 1 && arr.length) {
+        what = a[--L];
+        while ((ax= arr.indexOf(what)) !== -1) {
+            arr.splice(ax, 1);
+        }
+    }
+    return arr;
+  }
+
   function createStopwatch(key, started_at = new Date(), request = false) {
-    console.log(key);
+  //  console.log(key);
     if (request) {
       // prepare ajax request to db
       var tmp = key.split("_");
@@ -244,7 +255,7 @@ $(document).ready(function() {
     goingactivities.push(key);
     // update entry that timer is logging
     trackingStatuses[key] = true;
-    console.log(trackingStatuses);
+    //console.log(trackingStatuses);
   }
 
   // will be populated with log records
@@ -280,7 +291,8 @@ $(document).ready(function() {
 
     // make activity trackable
     trackingStatuses[key] = false;
-    goingactivities = [];
+    removeA(goingactivities, key);
+    //goingactivities = [];
   }
 
   // assign eventListeners to activities
@@ -321,8 +333,8 @@ $(document).ready(function() {
 
   // end logger
   $("#endBtn").click(function() {
+    console.log(goingactivities);
     if(goingactivities.length != 0){
-      //console.log(goingactivities);
       alert("Stop activities first!");
     }
     else{
