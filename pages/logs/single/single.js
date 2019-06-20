@@ -235,16 +235,16 @@ $(document).ready(function() {
           // add log to list
           $("#" + group + " .list").append(
             `
-                        <div class="activity" id="` +
+                        <a class="activity" id="` +
               group +
               "_" +
               slug +
               "_" +
               index +
-              `" style="background-image: url('http://saargraafika.ee/edulog/gradients/` +
+              `">
+                            <div class="bg" style="background-image: url('http://saargraafika.ee/edulog/gradients/` +
               backgrounds[group][slug] +
               `');">
-                            <div class="bg">
                                 <span class="timer">` +
               Math.floor((part / total) * 100) +
               "%" +
@@ -255,7 +255,7 @@ $(document).ready(function() {
               " - " +
               secondsToHMS(Math.floor(part)) +
               `</span>
-                        </div>
+                        </a>
                         `
           );
           /*console.log(log['started_at']);
