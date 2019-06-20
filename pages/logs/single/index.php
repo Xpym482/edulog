@@ -37,7 +37,7 @@
 
     <body>
         <div class="container">
-            <?php include "../../../" . 'pages/navbar/navbar.php'; ?>
+            <?php include 'navbar.php'; ?>
             <div class="logreg">
                 <section class="box-head">
                     <h1 id="title">Tundide logid</h1>
@@ -58,12 +58,3 @@
         </div><!-- end of container -->
     </body>
 </html>
-
-<?php
-} else {
-
-    // if no cookie, return to login
-    Redirect($edulog_root . 'pages/login', false);
-}
-
- ?>

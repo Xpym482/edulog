@@ -28,7 +28,7 @@
       }
     }
     else{
-      header("Location: http://xpym.ddns.net/edulog/pages/tracker");
+      header("Location: http://localhost/edulog/pages/tracker");
     }
 
     /*function Redirect($url, $permanent = false)

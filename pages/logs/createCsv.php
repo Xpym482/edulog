@@ -41,13 +41,13 @@
             date_default_timezone_set($_COOKIE['time_offset']);
 
             while ( $row = $activities_raw->fetchArray(SQLITE3_ASSOC) ) {
-                $timeStamp = strtotime($row["lesson start"].' UTC');
+                $timeStamp = strtotime($row["lesson start"].' GMT+03');
                 $row["lesson start"] = date("Y-m-d H:i:s", $timeStamp);
-                $timeStamp = strtotime($row["lesson end"].' UTC');
+                $timeStamp = strtotime($row["lesson end"].' GMT+03');
                 $row["lesson end"] = date("Y-m-d H:i:s", $timeStamp);
-                $timeStamp = strtotime($row["log start"].' UTC');
+                $timeStamp = strtotime($row["log start"].' GMT+03');
                 $row["log start"] = date("H:i:s", $timeStamp);
-                $timeStamp = strtotime($row["log end"].' UTC');
+                $timeStamp = strtotime($row["log end"].' GMT+03');
                 $row["log end"] = date("H:i:s", $timeStamp);
                 fputcsv($fp, $row, $separator);
             }

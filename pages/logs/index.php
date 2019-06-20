@@ -4,7 +4,11 @@ include '../../config.php';
 //include_once('../navbar/navbar.php');
 
 session_start();
-
+function Redirect($url, $permanent = false)
+{
+    header('Location: ' . $url, true, $permanent ? 301 : 302);
+    exit();
+}
 
 if(isset($_SESSION['user-name']))
 {
@@ -43,7 +47,7 @@ date_default_timezone_set($_COOKIE['time_offset']);
 
 $result = [];
 while ($row = $lessons->fetchArray()) {
-    $timeStamp = strtotime($row["started_at"].' GMT+01');
+    $timeStamp = strtotime($row["started_at"].' GMT+03');
     $row["started_at"] = date("Y-m-d H:i:s", $timeStamp);
     array_push($result, $row);
 }
