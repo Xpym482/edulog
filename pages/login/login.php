@@ -17,7 +17,7 @@ function signin($email, $password){
   } else {
       $invalid = false;
       // set cookie and redirect to tracker
-      //setcookie('user_id', $result['id'], time() + (86400 * 30), "/");
+      setcookie('user_id', $result['id'], time() + (86400 * 30), "/");
       setcookie('locale', $_POST['login-locale'], time() + (86400 * 30), "/");
       $_SESSION["user-name"] = $email;
       $_SESSION["id"] =  $result['id'];
