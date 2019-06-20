@@ -30,7 +30,7 @@ TLÜ, Digitehnoloogiate Instituut.
 Klient plaanib esitada projekti eKooli-le. 
 
 # Tehnoloogiad
-Projekti kirjutamiseks kasutasime arvutit. Programmid: Visual Studio Code(1.35.1.), Atom(1.38.2.), Excel.
+Projekti kirjutamiseks kasutasime arvutit. Programmid: Visual Studio Code(1.35.1.), Atom(1.38.2.), Excel, Github Desktop.
 Kasutasime WEB-server XAMPP(7.1.30 / PHP 7.1.30) 
 Kasutasime ka isiklikku serverit WampServer,
 Disaini tegemiseks kasutasime Figma-t ja sketchimiseks paberit.
