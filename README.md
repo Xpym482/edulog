@@ -2,6 +2,10 @@
 
 # Ekraanitõmmist rakendusest:
 ![Description](https://github.com/Xpym482/edulog/blob/master/img/Screenshot.PNG)
+![Description](https://github.com/Xpym482/edulog/blob/master/img/Screenshot2.PNG)
+![Description](https://github.com/Xpym482/edulog/blob/master/img/Screenshot3.PNG)
+![Description](https://github.com/Xpym482/edulog/blob/master/img/Screenshot4.PNG)
+
 
 # Eesmärk ja lühikirjeldus
 Arendada veebirakendus, mis aitab igale õpetajale saada õppetundi statistikat, 
