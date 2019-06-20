@@ -75,7 +75,7 @@
                         </select>
                     </section>
                     <section>
-                        <input id="login-email" name="E-mail" placeholder="E-mail">
+                        <input id="login-email" name="login-email" placeholder="E-mail">
                     </section>
                     <section>
                         <input type="password" id="login-password" name="login-password" placeholder="Password">
