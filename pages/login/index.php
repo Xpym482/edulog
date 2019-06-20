@@ -113,10 +113,10 @@
                         </select>
                     </section>
                     <section>
-                        <input id="login-email" name="login-email" placeholder="Kasutajanimi">
+                        <input id="login-email" name="E-mail" placeholder="E-mail">
                     </section>
                     <section>
-                        <input type="password" id="login-password" name="login-password" placeholder="Parool">
+                        <input type="password" id="login-password" name="login-password" placeholder="Password">
                     </section>
                     <section>
                         <div class="btn-wrap">
@@ -130,7 +130,7 @@
             if($invalid) {
                 echo '<span style="color: red; font-weight: bold; margin-top: 10px;" id="invalid-combination">Vale salasõna või emaili kombinatsioon</span>';
             } ?>
-            <p class="not-user">Ei ole veel kasutaja? <a class="links" href="../register">Registreeru siin</a></p>
+            <p class="not-user">Don't have an account? <a class="links" href="../register">Register here</a></p>
         </div>
     </body>
 </html>
