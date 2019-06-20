@@ -85,7 +85,6 @@ h4 {
 
 .activity {
   cursor: pointer;
-  width: 50%;
   background-size: cover;
   background-position: center;
   box-sizing: border-box;
@@ -96,6 +95,12 @@ h4 {
   justify-content: center;
   height: 60px;
   position: relative;
+  @include regular {
+    width: 50% !important;
+  }
+  @include phones {
+    width: 100%;
+  }
 }
 
 .delete-room {
@@ -134,11 +139,11 @@ h4 {
   position: absolute;
   right: 0px;
   @include regular {
-    height: 50px;
+    height: 50px !important;
+    bottom: 5px !important;
   }
   @include phones {
-    bottom: 0px;
-    height: auto;
+    bottom: 5px;
   }
 }
 
@@ -194,9 +199,10 @@ h4 {
   transform: translate(-50%, -50%);
   text-decoration: none;
   list-style: none;
+  padding-left: 0px;
   ul {
     margin: 0;
-    padding: 0;
+    padding: 0 !important;
     margin-left: 0px;
   }
   li {
