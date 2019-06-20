@@ -38,8 +38,14 @@ body {
 
 #activities,
 #tracker {
-  margin-top: 10%;
-  margin-bottom: 10%;
+  @include regular {
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
+  }
+  @include phones {
+    margin-top: 30%;
+    margin-bottom: 30%;
+  }
 }
 
 h1,
@@ -68,8 +74,13 @@ h4 {
 .list {
   display: flex;
   flex-wrap: wrap;
-  padding: 0px 20%;
   justify-content: center;
+  @include regular {
+    padding: 0px 20%;
+  }
+  @include phones {
+    padding: 0px 0px;
+  }
 }
 
 .activity {
@@ -122,6 +133,13 @@ h4 {
   transition: width ease 0.4s;
   position: absolute;
   right: 0px;
+  @include regular {
+    height: 50px;
+  }
+  @include phones {
+    bottom: 0px;
+    height: auto;
+  }
 }
 
 .activity.open .bg {

@@ -44,8 +44,8 @@
     <?php include "../navbar/navbar.php" ?>
     <div class="container-fluid">
       <ul class="settings-layout">
-        <li><a href="#">Klassid</a></li>
-        <li><a href="#">Tegevused</a></li>
+        <li><a href="<?php echo $edulog_root . 'pages/settings/room.php';?>">Klassid</a></li>
+        <li><a href="<?php echo $edulog_root . 'pages/settings/actions';?>">Tegevused</a></li>
         <li><a href="#">Suvaline #1</a></li>
         <li><a href="#">Suvaline #2</a></li>
         <li><a href="#">Suvaline #3</a></li>

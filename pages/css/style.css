@@ -93,10 +93,20 @@ body {
   text-align: center;
 }
 
-#activities,
-#tracker {
-  margin-top: 10%;
-  margin-bottom: 10%;
+@media (min-width: 481px) {
+  #activities,
+  #tracker {
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
+  }
+}
+
+@media (min-width: 330px) {
+  #activities,
+  #tracker {
+    margin-top: 30%;
+    margin-bottom: 30%;
+  }
 }
 
 h1,
@@ -136,10 +146,21 @@ h4 {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 0px 20%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media (min-width: 481px) {
+  .list {
+    padding: 0px 20%;
+  }
+}
+
+@media (min-width: 330px) {
+  .list {
+    padding: 0px 0px;
+  }
 }
 
 .activity {
@@ -213,6 +234,19 @@ h4 {
   transition: width ease 0.4s;
   position: absolute;
   right: 0px;
+}
+
+@media (min-width: 481px) {
+  .activity .bg {
+    height: 50px;
+  }
+}
+
+@media (min-width: 330px) {
+  .activity .bg {
+    bottom: 0px;
+    height: auto;
+  }
 }
 
 .activity.open .bg {

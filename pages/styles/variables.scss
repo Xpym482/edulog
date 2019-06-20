@@ -16,6 +16,18 @@ $verydarkgray: #585858;
   -o-transition-duration: 0.5s;
 }
 
+@mixin phones {
+  @media (min-width: 330px) {
+    @content;
+  }
+}
+
+@mixin regular {
+  @media (min-width: 481px) {
+    @content;
+  }
+}
+
 %transition {
   @include transition;
 }
