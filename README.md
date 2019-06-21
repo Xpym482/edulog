@@ -48,10 +48,11 @@ Jevgeni Prostsenko,
 Dominik Skljarov.
 
 # Paigaldusjuhised
-Õpetaja läheb antud veebilehe (kuhu failid ülesse laetakse) ja registreerida kasutajaks, hiljem juba saab sisse logida ning alustada kasutamisega.
+Meie veebirakenduse installerimine on väga kerge. Kõige pealt me installerime xampp või wamp kui kasutame windowsi (linuxis ei ole testitud). Kloonime githubi link (https://github.com/Xpym482/edulog) ja paneme siia, kus on installitud veebiserver. Kui xampp - C:\xampp\htdocs, kui wamp C:\WAMP\www sõltub sellest, kus on installitud. Sellega me saame kasutada oma “localhost”. http://localhost/edulog
+
 
 # Litsents
 Litsents(MIT): https://github.com/Xpym482/edulog/blob/master/LICENSE
 
 # URL
-https://github.com/Xpym482/edulog
+http://xpym.ddns.net/edulog3
