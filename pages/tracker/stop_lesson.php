@@ -18,7 +18,7 @@
         // end lesson
         $db->exec('BEGIN');
         $statement = $db->prepare("UPDATE lessons SET ended_at = ? WHERE user = ? AND id = ?");
-        $statement->bindValue(1, date('Y-m-d H:i:s', strtotime("now +1 GMT")));
+        $statement->bindValue(1, date('Y-m-d H:i:s', strtotime("now -3 GMT")));
         $statement->bindValue(2, $_POST['user_id']);
         $statement->bindValue(3, $_POST['lesson_id']);
         $statement->execute();

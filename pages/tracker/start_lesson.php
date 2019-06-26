@@ -9,7 +9,7 @@
         $db->exec('BEGIN');
         $statement = $db->prepare('UPDATE lessons SET started_at=(:started_at) where thread is (:teema)');
         //$statement->bindValue(':user', $_POST['user_id']);
-        $statement->bindValue(':started_at', date('Y-m-d H:i:s', strtotime("now +1 GMT")));
+        $statement->bindValue(':started_at', date('Y-m-d H:i:s', strtotime("now -3 GMT")));
         $statement->bindValue(':teema', $_COOKIE['tunditeema']);
         $statement->execute();
         $db->exec('COMMIT');

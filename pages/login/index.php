@@ -28,8 +28,7 @@
       }
     }
     else{
-      header("Location: http://localhost/edulog/pages/tracker");
-      //header("Location: http://xpym.ddns.net/edulog/pages/lesson_thread");
+      header("Location: http://localhost/edulog/pages/lesson_thread");
     }
 
     /*function Redirect($url, $permanent = false)

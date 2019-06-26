@@ -21,9 +21,7 @@ function signin($email, $password){
       setcookie('locale', $_POST['login-locale'], time() + (86400 * 30), "/");
       $_SESSION["user-name"] = $email;
       $_SESSION["id"] =  $result['id'];
-      //header("http://localhost/edulog/pages/tracker/index.php");
       header("Location: http://localhost/edulog/pages/lesson_thread");
-      //header("Location: http://xpym.ddns.net/edulog/pages/lesson_thread");
       //Redirect($edulog_root .'pages/tracker/index.php', false);
 
   }
